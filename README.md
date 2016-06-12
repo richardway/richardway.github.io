@@ -1,1 +1,0 @@
-# richardway.github.io
