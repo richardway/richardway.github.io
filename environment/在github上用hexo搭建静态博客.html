@@ -1,0 +1,115 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <link rel="Stylesheet" type="text/css" href="/static/css/style.css">
+    <link rel="Stylesheet" type="text/css" href="/static/css/tango.css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="alternate" type="application/atom+xml" href="atom.xml" title="Atom feed">
+    <title>在github上用hexo搭建静态博客 - </title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  </head>
+
+  <body>
+    <div id="container">
+      
+<div id="header">
+  <div class="post-nav"><a href="/">Home</a>&nbsp;&#187;&nbsp;<a href="/#environment">environment</a>&nbsp;&#187;&nbsp;在github上用hexo搭建静态博客
+    <span class="updated">Updated&nbsp;
+      2016-06-16 14:32
+    </span></div>
+</div>
+<div class="clearfix"></div>
+
+<div class="page_title">在github上用hexo搭建静态博客</div>
+
+  <div class="toc"><span class="toctitle">Table of Contents</span><ul>
+<li><a href="#_1">平台</a></li>
+<li><a href="#_2">工具</a></li>
+<li><a href="#_3">综述</a></li>
+<li><a href="#_4">步骤</a></li>
+<li><a href="#_5">参考文章</a></li>
+</ul>
+</div>
+<h2 id="_1">平台</h2>
+<ul>
+<li>Windows</li>
+<li>Github</li>
+</ul>
+<h2 id="_2">工具</h2>
+<ul>
+<li>Hexo 3.0</li>
+<li>Git Client</li>
+<li>Node.js <ul>
+<li>npm</li>
+</ul>
+</li>
+</ul>
+<h2 id="_3">综述</h2>
+<ol>
+<li>这篇文章记录我在github上通过<code>project page</code>发布博客的过程。<ul>
+<li>和网上的大多数教程不同，我不是通过<code>user page</code>发布博客的，因为我此前已经通过simiki在<code>http(s)://&lt;username&gt;.github.io</code>上搭建了个人wiki，所以我这里不可以再把该网址作为我的blog首页，所以我探索了用<code>project page</code>作为我的blog地址。最后的blog地址看起来很棒，它看上去就像是从属于我的个人wiki的页面那样，它的地址是<code>http(s)://&lt;username&gt;.github.io/blog/</code></li>
+</ul>
+</li>
+<li>每个用户名只能创建一个<code>user page</code>，却可以创建多个<code>project page</code>（因为每个repository都可以有）。它们的详细区别见<a href="#_5">[1]</a>。</li>
+</ol>
+<h2 id="_4">步骤</h2>
+<ol>
+<li>下载安装Hexo
+    不详细介绍了，按照Hexo官网的步骤做就行。</li>
+<li>建立本地博客目录，并生成output目录
+    <code>$ hexo init blog
+    $ npm install
+    $ npm install hexo-deployer-git --save
+    $ hexo generate</code></li>
+<li>在gitbub上部署博客（过程大致参考<code>project page</code>建立的过程<a href="#_5">[2]</a>）<ol>
+<li>首先在github上新建一个名为blog的repository</li>
+<li>在<code>/blog/output</code>目录初始化git版本库，新建孤儿分支gh-pages（注意：这是github规定的，<code>project page</code>的建立必须使用这个分支名称）并推送
+<code>$ cd blog/output
+$ git init
+$ git checkout --orphan gh-pages;
+$ git remote add origin https://github.com/&lt;username&gt;/blog.git
+$ git add .
+$ git commit -m "first commit"
+$ git push origin gh-pages
+// done，现在已经可以访问 http(s)://&lt;username&gt;.github.io/blog 了</code></li>
+</ol>
+</li>
+<li>配置_config.yml (参考<a href="#_5">[3]</a>, <a href="#_5">[4]</a>)，之后只需通过<code>hexo deploy</code>命令就可以将output目录下的改动push到repository了
+  ```
+  //_config.yml
+  url:
+    url: https://<username>.github.io/blog
+    root: /blog/</li>
+</ol>
+<p>deploy:
+    type: git
+    repo: https://github.com/<username>/blog.git
+    branch: gh-pages
+    message: [message]
+  <code></code>
+  //以下三种命令效果一致
+  $ hexo generate --deploy //(1)文件生成后立即部署网站
+  $ hexo deploy --generate //(2)部署之前预先生成静态文件</p>
+<p>$ hexo generate //(3)生成文件，然后部署网站
+  $ hexo deploy 
+  ```</p>
+<h2 id="_5">参考文章</h2>
+<p>[1] <a href="https://help.github.com/articles/user-organization-and-project-pages/">GitHub-doc: User, Organization, and Project Pages</a>
+  [2] <a href="https://help.github.com/articles/creating-project-pages-manually/">GitHub-doc: Creating Project Pages manually</a>
+  [3] <a href="https://hexo.io/zh-cn/docs/configuration.html">Configurations in hexo</a>
+  [4] <a href="https://hexo.io/zh-cn/docs/deployment.html">Deployment hexo through github</a>
+  [5] <a href="https://hexo.io/zh-cn/">Hexo中文文档</a>
+  [6] <a href="http://blog.xiaohansong.com/2015/06/17/用hexo搭建github博客/">用Hexo搭建github博客</a></p>
+    </div>
+    <div id="footer">
+      <span>
+        <p>Copyright © 2016 .
+        Powered by <a href="http://simiki.org/" target="_blank">Simiki</a>.</p>
+        <p>Site Generated 2016-06-17 23:13:16</p>
+      </span>
+    </div>
+  </body>
+</html>
