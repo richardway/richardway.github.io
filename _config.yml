@@ -2,7 +2,8 @@
 # http://simiki.org/docs/configuration.html
 
 url: 
-title: 
+title: richardway's wiki
 keywords: 
-description: 
-author: 
+description: wiki of richard zhang
+author: richard zhang
+theme: "simple"
