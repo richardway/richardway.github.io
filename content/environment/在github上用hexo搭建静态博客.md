@@ -12,8 +12,7 @@ date: 2016-06-16 14:32
 ## 工具
   - Hexo 3.0
   - Git Client
-  - Node.js 
-  	- npm
+  - Node.js(npm)
 
 ## 综述 
   1. 这篇文章记录我在github上通过`project page`发布博客的过程。
@@ -26,6 +25,7 @@ date: 2016-06-16 14:32
   2. 建立本地博客目录，并生成public目录
   	
 	  	$ hexo init blog
+	  	$ cd blog
 	  	$ npm install
 	  	$ npm install hexo-deployer-git --save
 	  	$ hexo generate
@@ -65,12 +65,12 @@ date: 2016-06-16 14:32
 		$ hexo deploy 
   
 ## 参考文章
-  \[1\] [GitHub-doc: User, Organization, and Project Pages][user-organization-and-project-pages]  
-  \[2\] [GitHub-doc: Creating Project Pages manually][creating-project-pages]  
-  \[3\] [Configurations in hexo][configuration]  
-  \[4\] [Deployment hexo through github][deployment]  
-  \[5\] [Hexo中文文档][hexo]  
-  \[6\] [用Hexo搭建github博客][shareHub]  
+  1. [GitHub-doc: User, Organization, and Project Pages][user-organization-and-project-pages]  
+  2. [GitHub-doc: Creating Project Pages manually][creating-project-pages]  
+  3. [Configurations in hexo][configuration]  
+  4. [Deployment hexo through github][deployment]  
+  5. [Hexo中文文档][hexo]  
+  6. [用Hexo搭建github博客][shareHub]  
 
 [reference]: #_5
 [user-organization-and-project-pages]: https://help.github.com/articles/user-organization-and-project-pages/
