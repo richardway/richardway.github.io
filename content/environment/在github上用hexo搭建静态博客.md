@@ -36,7 +36,7 @@ date: 2016-06-16 14:32
 	
 			$ cd blog/public
 			$ git init
-			$ git checkout --orphan gh-pages;
+			$ git checkout --orphan gh-pages
 			$ git remote add origin https://github.com/<username>/blog.git
 			$ git add .
 			$ git commit -m "first commit"
