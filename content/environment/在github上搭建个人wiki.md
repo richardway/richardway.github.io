@@ -51,10 +51,22 @@ date: 2016-06-12 18:07
 5. 定义自己的文档
 	
 		$ simiki n -t "Hello Simiki" -c first-catetory
-	这个命令将在`/mywiki/content/first-catetory`目录下新建文件名为`Hello Simiki.md`的文章（后缀md表示markdown格式），如果目录名不存在，那么首先会建立这个目录。
+	这个命令将在`/mywiki/content/first-catetory`目录下新建文件名为`Hello Simiki.md`的文章（后缀md表示markdown格式），如果目录名不存在，那么首先会建立这个目录。  
+	到此，我们已经可以创建和生成wiki文章了，但需要注意的是目前simiki仅支持文章二级目录，即content目录下不允许建立二级category，category下即是对应的文章。
 
-到此，我们已经可以创建和生成wiki文章了，但需要注意的是目前simiki仅支持文章二级目录，即content目录下不允许建立二级category，category下即是对应的文章。
-下面是其余几个重要的命令：
+6. 注意
+	
+	在5中使用simiki命令创建的markdown文件头会自动添加如下内容：
+	
+		---
+		title: "✘✘✘✘✘✘✘✘✘"
+		date: 2017-09-24 23:16
+		---
+	
+
+	如果自己在content文件夹下新建了目录，并添加文件的话，首先格式必须是markdown，其次也要在文件头加入上述内容，否则`simiki g`生成文档时将会把报错。  
+
+下面是其余几个常用的命令：
 #### Help ####
 	$ simiki -h
 #### Update ####
@@ -64,6 +76,8 @@ date: 2016-06-12 18:07
 	$ simiki g --draft //Include draft pages to generate
 #### Preview ####
 	$ simiki p -w //Auto regenerated when file changed
+
+
 
 
 ## 在GitHub上部署wiki ##

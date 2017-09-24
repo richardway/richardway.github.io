@@ -2,12 +2,7 @@
 # http://simiki.org/docs/configuration.html
 
 url: 
-title: richardway's wiki
+title: 
 keywords: 
-description: wiki of richard zhang
-author: richard zhang
-theme: simple2
-
-categories: 
- - name: environment
-   label: Environment
+description: 
+author: 
