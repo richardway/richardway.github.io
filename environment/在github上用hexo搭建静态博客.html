@@ -1,0 +1,133 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <link rel="Stylesheet" type="text/css" href="/static/css/style.css">
+    <link rel="Stylesheet" type="text/css" href="/static/css/tango.css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="alternate" type="application/atom+xml" href="atom.xml" title="Atom feed">
+    <title>在Github上用Hexo搭建静态博客 - </title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  </head>
+
+  <body>
+    <div id="container">
+      
+<div id="header">
+  <div class="post-nav"><a href="/">Home</a>&nbsp;&#187;&nbsp;<a href="/#environment">environment</a>&nbsp;&#187;&nbsp;在Github上用Hexo搭建静态博客
+    <span class="updated">Page Updated&nbsp;
+      2016-06-16 14:32
+    </span></div>
+</div>
+<div class="clearfix"></div>
+
+<div class="page_title">在Github上用Hexo搭建静态博客</div>
+
+  <div class="toc"><span class="toctitle">Table of Contents</span><ul>
+<li><a href="#_1">平台</a></li>
+<li><a href="#_2">工具</a></li>
+<li><a href="#_3">综述</a></li>
+<li><a href="#_4">步骤</a></li>
+<li><a href="#_5">参考文章</a></li>
+</ul>
+</div>
+<h2 id="_1">平台</h2>
+<ul>
+<li>Windows</li>
+<li>Github</li>
+</ul>
+<h2 id="_2">工具</h2>
+<ul>
+<li>Hexo 3.0</li>
+<li>Git Client</li>
+<li>Node.js(npm)</li>
+</ul>
+<h2 id="_3">综述</h2>
+<ol>
+<li>这篇文章记录我在github上通过<code>project page</code>发布博客的过程。<ul>
+<li>和网上的大多数教程不同，我不是通过<code>user page</code>发布博客的，因为我此前已经通过simiki在<code>http(s)://&lt;username&gt;.github.io</code>上搭建了个人wiki，所以我这里不可以再把该网址作为我的blog首页，所以我探索了用<code>project page</code>作为我的blog地址。最后的blog地址看起来很棒，它看上去就像是从属于我的个人wiki的页面那样，它的地址是<code>http(s)://&lt;username&gt;.github.io/blog/</code></li>
+</ul>
+</li>
+<li>每个用户名只能创建一个<code>user page</code>，却可以创建多个<code>project page</code>（因为每个repository都可以有）。它们的详细区别见<a href="#_5">[1]</a>。</li>
+</ol>
+<h2 id="_4">步骤</h2>
+<ol>
+<li>下载安装Hexo<br />
+    不详细介绍了，按照Hexo官网的步骤做就行。</li>
+<li>
+<p>建立本地博客目录，并生成public目录</p>
+<div class="hlcode"><pre><span class="err">$</span> <span class="n">hexo</span> <span class="n">init</span> <span class="n">blog</span>
+<span class="err">$</span> <span class="n">cd</span> <span class="n">blog</span>
+<span class="err">$</span> <span class="n">npm</span> <span class="n">install</span>
+<span class="err">$</span> <span class="n">npm</span> <span class="n">install</span> <span class="n">hexo</span><span class="o">-</span><span class="n">deployer</span><span class="o">-</span><span class="n">git</span> <span class="o">--</span><span class="n">save</span>
+<span class="err">$</span> <span class="n">hexo</span> <span class="n">generate</span>
+</pre></div>
+
+
+</li>
+<li>
+<p>在gitbub上部署博客（过程大致参考<code>project page</code>建立的过程<a href="#_5">[2]</a>）</p>
+<ol>
+<li>首先在github上新建一个名为blog的repository</li>
+<li>在<code>/blog/public</code>目录初始化git版本库，新建孤儿分支gh-pages（注意：这是github规定的，<code>project page</code>的建立必须使用这个分支名称）并推送<div class="hlcode"><pre><span class="err">$</span> <span class="nx">cd</span> <span class="nx">blog</span><span class="p">/</span><span class="k">public</span>
+<span class="err">$</span> <span class="nx">git</span> <span class="nb">init</span>
+<span class="err">$</span> <span class="nx">git</span> <span class="nx">checkout</span> <span class="o">--</span><span class="nx">orphan</span> <span class="nx">gh</span><span class="na">-pages</span>
+<span class="err">$</span> <span class="nx">git</span> <span class="nx">remote</span> <span class="nb">add</span> <span class="nx">origin</span> <span class="nx">https</span><span class="p">:</span><span class="c1">//github.com/&lt;username&gt;/blog.git</span>
+<span class="err">$</span> <span class="nx">git</span> <span class="nb">add</span> <span class="nx">.</span>
+<span class="err">$</span> <span class="nx">git</span> <span class="nx">commit</span> <span class="na">-m</span> <span class="s2">&quot;first commit&quot;</span>
+<span class="err">$</span> <span class="nx">git</span> <span class="nb">push</span> <span class="nx">origin</span> <span class="nx">gh</span><span class="na">-pages</span>
+<span class="c1">// done，现在已经可以访问 http(s)://&lt;username&gt;.github.io/blog 了</span>
+</pre></div>
+
+
+</li>
+</ol>
+</li>
+<li>
+<p>配置_config.yml (参考<a href="#_5">[3]</a>, <a href="#_5">[4]</a>)，之后只需通过<code>hexo deploy</code>命令就可以将public目录下的改动push到repository了</p>
+<div class="hlcode"><pre><span class="c1">//_config.yml</span>
+<span class="nl">url:</span>
+<span class="nl">url:</span> <span class="nl">https:</span><span class="c1">//&lt;username&gt;.github.io/blog/</span>
+<span class="nl">root:</span> <span class="o">/</span><span class="n">blog</span><span class="o">/</span>
+
+<span class="nl">deploy:</span>
+<span class="k">type</span><span class="o">:</span> <span class="n">git</span>
+<span class="nl">repo:</span> <span class="nl">https:</span><span class="c1">//github.com/&lt;username&gt;/blog.git</span>
+<span class="nl">branch:</span> <span class="n">gh</span><span class="o">-</span><span class="n">pages</span>
+<span class="nl">message:</span> <span class="p">[</span><span class="n">message</span><span class="p">]</span>
+
+<span class="c1">//以下三种命令效果一致</span>
+<span class="err">$</span> <span class="n">hexo</span> <span class="k">generate</span> <span class="o">--</span><span class="n">deploy</span> <span class="c1">//(1)文件生成后立即部署网站</span>
+<span class="err">$</span> <span class="n">hexo</span> <span class="n">deploy</span> <span class="o">--</span><span class="k">generate</span> <span class="c1">//(2)部署之前预先生成静态文件</span>
+
+<span class="err">$</span> <span class="n">hexo</span> <span class="k">generate</span> <span class="c1">//(3)生成文件，然后部署网站</span>
+<span class="err">$</span> <span class="n">hexo</span> <span class="n">deploy</span>
+</pre></div>
+
+
+</li>
+</ol>
+<h2 id="_5">参考文章</h2>
+<ol>
+<li><a href="https://help.github.com/articles/user-organization-and-project-pages/">GitHub-doc: User, Organization, and Project Pages</a>  </li>
+<li><a href="https://help.github.com/articles/creating-project-pages-manually/">GitHub-doc: Creating Project Pages manually</a>  </li>
+<li><a href="https://hexo.io/zh-cn/docs/configuration.html">Configurations in hexo</a>  </li>
+<li><a href="https://hexo.io/zh-cn/docs/deployment.html">Deployment hexo through github</a>  </li>
+<li><a href="https://hexo.io/zh-cn/">Hexo中文文档</a>  </li>
+<li><a href="http://blog.xiaohansong.com/2015/06/17/用hexo搭建github博客/">用Hexo搭建github博客</a>  </li>
+</ol>
+    </div>
+    <div id="footer">
+      <span>
+        <p>Copyright © 2017 .
+        Powered by <a href="http://simiki.org/" target="_blank">Simiki</a>.</p>
+        <p>Site Generated 2017-09-24 23:32:14</p>
+      </span>
+    </div>
+
+    
+    
+  </body>
+</html>
