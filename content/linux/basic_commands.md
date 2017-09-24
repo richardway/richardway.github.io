@@ -50,4 +50,4 @@ date: 2017-09-24 23:16
 1. tar
 2. zip
 3. unzip
-	- -d \<exdir\>
+	- -d <exdir\>
