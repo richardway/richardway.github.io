@@ -1,0 +1,192 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <link rel="Stylesheet" type="text/css" href="/static/css/style.css">
+    <link rel="Stylesheet" type="text/css" href="/static/css/tango.css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="alternate" type="application/atom+xml" href="atom.xml" title="Atom feed">
+    <title>在GitHub上搭建个人wiki - richardway's wiki</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content="wiki of richard zhang"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  </head>
+
+  <body>
+    <div id="container">
+      
+<div id="header">
+  <div class="post-nav"><a href="/">Home</a>&nbsp;&#187;&nbsp;<a href="/#environment">environment</a>&nbsp;&#187;&nbsp;在GitHub上搭建个人wiki
+    <span class="updated">Updated&nbsp;
+      2016-06-12 18:07
+    </span></div>
+</div>
+<div class="clearfix"></div>
+
+<div class="page_title">在GitHub上搭建个人wiki</div>
+
+  <div class="toc"><span class="toctitle">Table of Contents</span><ul>
+<li><a href="#_1">工具</a></li>
+<li><a href="#_2">说明</a></li>
+<li><a href="#wiki">搭建本地wiki环境</a><ul>
+<li><a href="#help">Help</a></li>
+<li><a href="#update">Update</a></li>
+<li><a href="#generate">Generate</a></li>
+<li><a href="#preview">Preview</a></li>
+</ul>
+</li>
+<li><a href="#githubwiki">在GitHub上部署wiki</a></li>
+<li><a href="#_3">参考文章</a></li>
+</ul>
+</div>
+<h2 id="_1">工具</h2>
+<ul>
+<li>Mac OS X Yosemite(10.10.5)</li>
+<li>GitHub Page</li>
+<li>Simiki</li>
+</ul>
+<h2 id="_2">说明</h2>
+<ol>
+<li>
+<p>GitHub Page是GitHub自身的功能，它的官方介绍是：</p>
+<blockquote>
+<p>Websites for you and your projects. Hosted directly from your GitHub repository. Just edit, push, and your changes are live.</p>
+</blockquote>
+<ol>
+<li>
+<p>User &amp; Organization Pages</p>
+<blockquote>
+<p>User &amp; Organization Pages live in a special repository dedicated to GitHub Pages files. You will need to name this repository with the account name.</p>
+</blockquote>
+</li>
+<li>
+<p>Project Pages</p>
+<blockquote>
+<p>Unlike User and Organization Pages, Project Pages are kept in the same repository as their project. </p>
+</blockquote>
+</li>
+</ol>
+<p>本文目标是建立User Page，两类Page的具体区别请参考<a href="https://help.github.com/articles/user-organization-and-project-pages/">GitHub Page文档</a>.</p>
+</li>
+<li>
+<p>Simiki是一个简单的wiki框架，它是simple wiki的缩写，采用Markdown格式书写文档，simiki将markdown格式的文件发布为静态页面。</p>
+</li>
+<li>本文的目的：用Simiki在本地建立wiki工作环境，然后部署到GitHub上。</li>
+</ol>
+<h2 id="wiki">搭建本地wiki环境</h2>
+<ol>
+<li>
+<p>安装Simiki (首先要安装python环境)</p>
+<div class="hlcode"><pre><span class="err">$</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">simiki</span>
+</pre></div>
+
+
+</li>
+<li>
+<p>初始化本地Simiki工作目录</p>
+<div class="hlcode"><pre><span class="err">$</span> <span class="n">mkdir</span> <span class="n">mywiki</span>
+<span class="err">$</span> <span class="n">cd</span> <span class="n">mywiki</span>
+<span class="err">$</span> <span class="n">simiki</span> <span class="n">init</span>
+</pre></div>
+
+
+</li>
+<li>
+<p>生成静态文件
+    simiki自带一个说明文档，<code>simiki g</code>可以生成它的静态文件，输出到<code>/mywiki/output</code>目录中，注意output目录在执行这个命令的时候会执行删除文件操作，所以资源不要保存在这个目录下。</p>
+<div class="hlcode"><pre><span class="err">$</span> <span class="n">simiki</span> <span class="n">g</span>
+</pre></div>
+
+
+</li>
+<li>
+<p>本地预览（调试）模式，该命令打开默认的浏览器，展现simiki自带的说明文档</p>
+<div class="hlcode"><pre><span class="err">$</span> <span class="n">simiki</span> <span class="n">p</span>
+</pre></div>
+
+
+</li>
+<li>
+<p>定义自己的文档</p>
+<div class="hlcode"><pre><span class="err">$</span> <span class="n">simiki</span> <span class="n">n</span> <span class="o">-</span><span class="n">t</span> <span class="s">&quot;Hello Simiki&quot;</span> <span class="o">-</span><span class="n">c</span> <span class="n">first</span><span class="o">-</span><span class="n">catetory</span>
+</pre></div>
+
+
+<p>这个命令将在<code>/mywiki/content/first-catetory</code>目录下新建文件名为<code>Hello Simiki.md</code>的文章（后缀md表示markdown格式），如果目录名不存在，那么首先会建立这个目录。</p>
+</li>
+</ol>
+<p>到此，我们已经可以创建和生成wiki文章了，但需要注意的是目前simiki仅支持文章二级目录，即content目录下不允许建立二级category，category下即是对应的文章。
+下面是其余几个重要的命令：</p>
+<h4 id="help">Help</h4>
+<div class="hlcode"><pre><span class="err">$</span> <span class="n">simiki</span> <span class="o">-</span><span class="n">h</span>
+</pre></div>
+
+
+<h4 id="update">Update</h4>
+<div class="hlcode"><pre><span class="err">$</span> <span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">U</span> <span class="n">simiki</span>
+<span class="err">$</span> <span class="n">simiki</span> <span class="n">update</span>
+</pre></div>
+
+
+<h4 id="generate">Generate</h4>
+<div class="hlcode"><pre><span class="err">$</span> <span class="n">simiki</span> <span class="n">g</span> <span class="o">--</span><span class="n">draft</span> <span class="c1">//Include draft pages to generate</span>
+</pre></div>
+
+
+<h4 id="preview">Preview</h4>
+<div class="hlcode"><pre><span class="err">$</span> <span class="n">simiki</span> <span class="n">p</span> <span class="o">-</span><span class="n">w</span> <span class="c1">//Auto regenerated when file changed</span>
+</pre></div>
+
+
+<h2 id="githubwiki">在GitHub上部署wiki</h2>
+<ol>
+<li>首先在GitHub上new repository (<code>&lt;username&gt;.github.io</code>)，&lt;username&gt;必须是GitHub用户名。</li>
+<li>
+<p>在wiki的output目录下，git初始化，创建默认的<code>master</code>分支:</p>
+<div class="hlcode"><pre><span class="err">$</span> <span class="nx">cd</span> <span class="nb">output</span>
+<span class="err">$</span> <span class="nx">git</span> <span class="nb">init</span>
+<span class="err">$</span> <span class="nx">git</span> <span class="nb">add</span> <span class="nx">.</span>
+<span class="err">$</span> <span class="nx">git</span> <span class="nx">commit</span> <span class="na">-m</span> <span class="s1">&#39;first comment&#39;</span>
+<span class="c1">//将远程仓库命名为origin</span>
+<span class="err">$</span> <span class="nx">git</span> <span class="nx">remote</span> <span class="nb">add</span> <span class="nx">origin</span> <span class="nx">https</span><span class="p">:</span><span class="c1">//github.com/&lt;username&gt;/&lt;username&gt;.github.io.git</span>
+<span class="err">$</span> <span class="nx">git</span> <span class="nb">push</span> <span class="na">-u</span> <span class="nx">origin</span> <span class="nx">master</span>
+</pre></div>
+
+
+<p>浏览器打开<code>http://&lt;username&gt;.github.io</code>，可以看到页面已经建立起来了，但我们只是部署了静态页面，最好也在github上托管原始文件。</p>
+</li>
+<li>
+<p>托管原始文件</p>
+<div class="hlcode"><pre><span class="c1">//首先退回到mywiki根目录，并添加定义忽略规则</span>
+<span class="err">$</span> <span class="n">cd</span> <span class="p">..</span>
+<span class="err">$</span> <span class="n">echo</span> <span class="p">&#39;</span><span class="o">*</span><span class="p">.</span><span class="n">pyc</span><span class="err">\</span><span class="n">noutput</span><span class="p">&#39;</span> <span class="o">&gt;</span> <span class="p">.</span><span class="n">gitignore</span>
+
+<span class="c1">//然后创建`source`分支</span>
+<span class="err">$</span> <span class="n">git</span> <span class="n">init</span>
+<span class="err">$</span> <span class="n">git</span> <span class="n">checkout</span> <span class="o">-</span><span class="n">b</span> <span class="n">source</span>
+<span class="err">$</span> <span class="n">git</span> <span class="n">add</span> <span class="p">.</span>
+<span class="err">$</span> <span class="n">git</span> <span class="n">commit</span> <span class="o">-</span><span class="n">m</span> <span class="p">&#39;</span><span class="n">add</span> <span class="n">source</span> <span class="n">file</span><span class="p">&#39;</span>
+
+<span class="err">$</span> <span class="n">git</span> <span class="n">remote</span> <span class="n">add</span> <span class="n">origin</span> <span class="nl">https:</span><span class="c1">//github.com/&lt;username&gt;/&lt;username&gt;.github.io.git</span>
+<span class="err">$</span> <span class="n">git</span> <span class="n">push</span> <span class="o">-</span><span class="n">u</span> <span class="n">origin</span> <span class="n">source</span>
+</pre></div>
+
+
+<p>如果新增了文章，需要将<code>origin/master</code>分支和<code>origin/source</code>分支都push到repository，<code>http://&lt;username&gt;.github.io</code>默认使用的是<code>master</code>分支的index.html</p>
+</li>
+</ol>
+<h2 id="_3">参考文章</h2>
+<ul>
+<li><a href="https://help.github.com/categories/github-pages-basics/">Github Page Help</a></li>
+<li><a href="http://simiki.org/zh-docs/">Simiki 文档</a></li>
+</ul>
+    </div>
+    <div id="footer">
+      <span>
+        <p>Copyright © 2016 richard zhang.
+        Powered by <a href="http://simiki.org/" target="_blank">Simiki</a>.</p>
+        <p>Site Generated 2016-06-19 22:11:06</p>
+      </span>
+    </div>
+  </body>
+</html>
