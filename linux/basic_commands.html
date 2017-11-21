@@ -64,13 +64,47 @@
 </ol>
 <h3 id="_2">进程</h3>
 <ol>
-<li>ps<ul>
-<li>-e</li>
-<li>-f</li>
-<li>-a</li>
-<li>-u</li>
-<li>-x</li>
-</ul>
+<li>
+<p>ps -- process status</p>
+<p><code>SYNOPSIS
+ ps [-AaCcEefhjlMmrSTvwXx] [-O fmt | -o fmt] [-G gid[,gid...]]
+    [-g grp[,grp...]] [-u uid[,uid...]] [-p pid[,pid...]] [-t tty[,tty...]]
+    [-U user[,user...]]
+ ps [-L]</code></p>
+<table>
+<thead>
+<tr>
+<th align="left">选项</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><strong>-e</strong></td>
+<td>Select all processes, identical to <strong>-A</strong></td>
+</tr>
+<tr>
+<td align="left"><strong>-f</strong></td>
+<td>Display the uid, pid, parent pid, recent CPU usage, process start time, controlling tty, elapsed CPU usage, and the associated command.If the <strong>-u</strong> option is also used, display the user name rather then the numeric uid.  When <strong>-o</strong> or <strong>-O</strong> is used to add to the display following <strong>-f</strong>, the command field is not truncated as severely as it is in other formats.</td>
+</tr>
+<tr>
+<td align="left"><strong>-a</strong></td>
+<td>Display information about other users' processes as well as your own.  This will skip any processes which do not have a controlling terminal, unless the <strong>-x</strong> option is also specified.</td>
+</tr>
+<tr>
+<td align="left"><strong>-u</strong></td>
+<td>Display the processes belonging to the specified usernames.</td>
+</tr>
+<tr>
+<td align="left"><strong>-x</strong></td>
+<td>When displaying processes matched by other options, include processes which do not have a controlling terminal.</td>
+</tr>
+<tr>
+<td align="left"><strong>-X</strong></td>
+<td>When displaying processes matched by other options, skip any processes which do not have a controlling terminal.</td>
+</tr>
+</tbody>
+</table>
 </li>
 </ol>
 <h3 id="_3">网络</h3>
@@ -81,12 +115,18 @@
 <li>-p: list pid</li>
 </ul>
 </li>
+<li>iptables<br />
+    显示防火墙配置：<code>cat /etc/sysconfig/iptables</code><br />
+    关闭防火墙：<code>sudo service iptables stop</code></li>
+<li>route<br />
+    查看路由配置：<code>route -n</code></li>
 </ol>
 <h3 id="_4">系统状态</h3>
 <ol>
 <li>ls /proc/meminfo</li>
 <li>ls /proc/cpuinfo</li>
 <li>lsblk</li>
+<li>df</li>
 <li>lvm</li>
 <li>lvs</li>
 </ol>
@@ -104,7 +144,7 @@
       <span>
         <p>Copyright © 2017 richardway.
         Powered by <a href="http://simiki.org/" target="_blank">Simiki</a>.</p>
-        <p>Site Generated 2017-10-03 08:41:40</p>
+        <p>Site Generated 2017-11-22 00:21:46</p>
       </span>
     </div>
 
