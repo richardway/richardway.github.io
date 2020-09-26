@@ -27,20 +27,61 @@
 
   <div class="toc"><span class="toctitle">Table of Contents</span><ul>
 <li><a href="#linux">Linux命令</a><ul>
-<li><a href="#_1">基本命令</a></li>
-<li><a href="#_2">进程</a></li>
-<li><a href="#_3">网络</a></li>
-<li><a href="#_4">系统状态</a></li>
-<li><a href="#_5">压缩、解压</a></li>
+<li><a href="#_1">基本命令</a><ul>
+<li><a href="#1-ls">1. ls</a><ul>
+<li><a href="#_2">示例</a></li>
+</ul>
+</li>
+<li><a href="#3-cd">3. cd</a></li>
+<li><a href="#4-mv">4. mv</a></li>
+<li><a href="#5-cp">5. cp</a></li>
+<li><a href="#6-mkdir">6. mkdir</a></li>
+<li><a href="#7-rmdir">7. rmdir</a></li>
+<li><a href="#8-rm">8. rm</a></li>
+<li><a href="#9-touch">9. touch</a></li>
+<li><a href="#10-grep">10. grep</a></li>
+<li><a href="#11-find">11. find</a></li>
+<li><a href="#12-chmod">12. chmod</a></li>
+<li><a href="#13-chown">13. chown</a></li>
+<li><a href="#14-awk">14. awk</a></li>
+<li><a href="#15-xargs">15. xargs</a></li>
+</ul>
+</li>
+<li><a href="#_3">进程</a><ul>
+<li><a href="#1-ps-process-status">1. ps -- process status</a></li>
+</ul>
+</li>
+<li><a href="#_4">网络</a><ul>
+<li><a href="#1-netstat">1. netstat</a></li>
+<li><a href="#2-iptables">2. iptables</a></li>
+<li><a href="#3-route">3. route</a></li>
+<li><a href="#4-scp">4. scp</a></li>
+</ul>
+</li>
+<li><a href="#_5">系统状态</a><ul>
+<li><a href="#1-ls-procpid62cwd">1. ls /proc/&lt;pid>/cwd</a></li>
+<li><a href="#2-ls-procmeminfo">2. ls /proc/meminfo</a></li>
+<li><a href="#3-ls-proccpuinfo">3. ls /proc/cpuinfo</a></li>
+<li><a href="#4-lsblk">4. lsblk</a></li>
+<li><a href="#5-df">5. df</a></li>
+<li><a href="#6-lvm">6. lvm</a></li>
+<li><a href="#7-lvs">7. lvs</a></li>
+<li><a href="#8-top">8. top</a></li>
+</ul>
+</li>
+<li><a href="#_6">压缩、解压</a><ul>
+<li><a href="#1-tar">1. tar</a></li>
+<li><a href="#2-zip">2. zip</a></li>
+<li><a href="#3-unzip">3. unzip</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
 </div>
 <h1 id="linux">Linux命令</h1>
 <h3 id="_1">基本命令</h3>
-<ol>
-<li>ls</li>
-</ol>
+<h4 id="1-ls">1. ls</h4>
 <p><code>shell
    SYNOPSIS
         ls [-ABCFGHLOPRSTUW@abcdefghiklmnopqrstuwx1] [file ...]</code></p>
@@ -82,39 +123,27 @@
 </tr>
 </tbody>
 </table>
-<p>#### 举例</p>
-<p><code>shell
-   # 列出所有非隐藏文件
-   ls
-   ls filename
-   # 列出所有文件
-   ls -a
-   # 列出所有文件及详情
-   ls -al
-   # 按照时间修改顺序列出文件
-   ls -lt
-   # 只列出目录
-   ls -b */</code></p>
-<ol>
-<li>
-<p>cd</p>
-</li>
-<li>
-<p>mv</p>
-</li>
-<li>
-<p>cp</p>
-</li>
-<li>
-<p>mkdir</p>
-</li>
-<li>
-<p>rmdir</p>
-</li>
-<li>
-<p>rm</p>
-</li>
-</ol>
+<h5 id="_2">示例</h5>
+<div class="hlcode"><pre><span></span><span class="c1"># 列出所有非隐藏文件</span>
+ls
+ls filename
+<span class="c1"># 列出所有文件</span>
+ls -a
+<span class="c1"># 列出所有文件及详情</span>
+ls -al
+<span class="c1"># 按照时间修改顺序列出文件</span>
+ls -lt
+<span class="c1"># 只列出目录</span>
+ls -b */
+</pre></div>
+
+
+<h4 id="3-cd">3. cd</h4>
+<h4 id="4-mv">4. mv</h4>
+<h4 id="5-cp">5. cp</h4>
+<h4 id="6-mkdir">6. mkdir</h4>
+<h4 id="7-rmdir">7. rmdir</h4>
+<h4 id="8-rm">8. rm</h4>
 <p><code>SYNOPSIS
     rm [-dfiPRrvW] file ...
     unlink file</code></p>
@@ -140,14 +169,8 @@
 </tr>
 </tbody>
 </table>
-<ol>
-<li>
-<p>touch</p>
-</li>
-<li>
-<p>grep</p>
-</li>
-</ol>
+<h4 id="9-touch">9. touch</h4>
+<h4 id="10-grep">10. grep</h4>
 <p><code>SYNOPSIS
      grep [-abcdDEFGHhIiJLlmnOopqRSsUVvwxZ] [-A num] [-B num] [-C[num]]
           [-e pattern] [-f file] [--binary-files=value] [--color[=when]]
@@ -175,120 +198,88 @@
 </tr>
 </tbody>
 </table>
-<ol>
-<li>
-<p>find</p>
-</li>
-<li>
-<p>chmod</p>
-</li>
-<li>
-<p>chown</p>
-</li>
-<li>
-<p>awk</p>
-</li>
-<li>
-<p>xargs</p>
-</li>
-</ol>
-<h3 id="_2">进程</h3>
-<ol>
-<li>
-<p>ps -- process status</p>
-<p><code>SYNOPSIS
- ps [-AaCcEefhjlMmrSTvwXx] [-O fmt | -o fmt] [-G gid[,gid...]]
-    [-g grp[,grp...]] [-u uid[,uid...]] [-p pid[,pid...]] [-t tty[,tty...]]
-    [-U user[,user...]]
- ps [-L]</code></p>
-<table>
-<thead>
-<tr>
-<th align="left">选项</th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left"><strong>-e</strong></td>
-<td>Select all processes, identical to <strong>-A</strong></td>
-</tr>
-<tr>
-<td align="left"><strong>-f</strong></td>
-<td>Display the uid, pid, parent pid, recent CPU usage, process start time, controlling tty, elapsed CPU usage, and the associated command.If the <strong>-u</strong> option is also used, display the user name rather then the numeric uid.  When <strong>-o</strong> or <strong>-O</strong> is used to add to the display following <strong>-f</strong>, the command field is not truncated as severely as it is in other formats.</td>
-</tr>
-<tr>
-<td align="left"><strong>-a</strong></td>
-<td>Display information about other users' processes as well as your own.  This will skip any processes which do not have a controlling terminal, unless the <strong>-x</strong> option is also specified.</td>
-</tr>
-<tr>
-<td align="left"><strong>-u</strong></td>
-<td>Display the processes belonging to the specified usernames.</td>
-</tr>
-<tr>
-<td align="left"><strong>-x</strong></td>
-<td>When displaying processes matched by other options, include processes which do not have a controlling terminal.</td>
-</tr>
-<tr>
-<td align="left"><strong>-X</strong></td>
-<td>When displaying processes matched by other options, skip any processes which do not have a controlling terminal.</td>
-</tr>
-</tbody>
-</table>
-</li>
-</ol>
-<h3 id="_3">网络</h3>
-<ol>
-<li>netstat<ul>
-<li>-a</li>
-<li>-n</li>
-<li>-p: list pid</li>
-</ul>
-</li>
-<li>iptables<br />
-    显示防火墙配置：<code>cat /etc/sysconfig/iptables</code><br />
-    关闭防火墙：<code>sudo service iptables stop</code></li>
-<li>route<br />
-    查看路由配置：<code>route -n</code></li>
-<li>scp<br />
-    文件远程传输</li>
-</ol>
-<h3 id="_4">系统状态</h3>
-<ol>
-<li>ls /proc/&lt;pid>/cwd</li>
-<li>ls /proc/meminfo</li>
-<li>ls /proc/cpuinfo</li>
-<li>lsblk</li>
-<li>df</li>
-<li>lvm</li>
-<li>lvs</li>
-<li>top</li>
-</ol>
-<h3 id="_5">压缩、解压</h3>
-<ol>
-<li>tar<br />
-    注意：c/x/t选项不能同时使用，f选项接文档名，后面不能再加其他选项<ul>
-<li>-c 压缩</li>
-<li>-z 是否具有 gzip 属性</li>
-<li>-t 查看 tarfile 里面的文件！</li>
-<li>-x 解压</li>
-<li>-v 压缩的过程中显示文件</li>
-<li>-f 使用档名</li>
-</ul>
-</li>
-<li>zip</li>
-<li>unzip<ul>
-<li>-d &lt;exdir></li>
-<li>-q quiet mode</li>
-</ul>
-</li>
-</ol>
+<h4 id="11-find">11. find</h4>
+<h4 id="12-chmod">12. chmod</h4>
+<h4 id="13-chown">13. chown</h4>
+<h4 id="14-awk">14. awk</h4>
+<h4 id="15-xargs">15. xargs</h4>
+<h3 id="_3">进程</h3>
+<h4 id="1-ps-process-status">1. ps -- process status</h4>
+<div class="hlcode"><pre><span></span><span class="err">```</span>
+ <span class="nv">SYNOPSIS</span>
+ <span class="s s-Atom">ps</span> <span class="p">[</span><span class="o">-</span><span class="nv">AaCcEefhjlMmrSTvwXx</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="nv">O</span> <span class="s s-Atom">fmt</span> <span class="p">|</span> <span class="o">-</span><span class="s s-Atom">o</span> <span class="s s-Atom">fmt</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="nv">G</span> <span class="s s-Atom">gid</span><span class="p">[,</span><span class="s s-Atom">gid</span><span class="p">...]]</span>
+    <span class="p">[</span><span class="o">-</span><span class="s s-Atom">g</span> <span class="s s-Atom">grp</span><span class="p">[,</span><span class="s s-Atom">grp</span><span class="p">...]]</span> <span class="p">[</span><span class="o">-</span><span class="s s-Atom">u</span> <span class="s s-Atom">uid</span><span class="p">[,</span><span class="s s-Atom">uid</span><span class="p">...]]</span> <span class="p">[</span><span class="o">-</span><span class="s s-Atom">p</span> <span class="s s-Atom">pid</span><span class="p">[,</span><span class="s s-Atom">pid</span><span class="p">...]]</span> <span class="p">[</span><span class="o">-</span><span class="s s-Atom">t</span> <span class="s s-Atom">tty</span><span class="p">[,</span><span class="s s-Atom">tty</span><span class="p">...]]</span>
+    <span class="p">[</span><span class="o">-</span><span class="nv">U</span> <span class="s s-Atom">user</span><span class="p">[,</span><span class="s s-Atom">user</span><span class="p">...]]</span>
+ <span class="s s-Atom">ps</span> <span class="p">[</span><span class="o">-</span><span class="nv">L</span><span class="p">]</span>
+<span class="err">```</span>
+
+<span class="p">|</span><span class="s s-Atom">选项</span><span class="p">|</span><span class="s s-Atom">作用</span><span class="p">|</span>
+<span class="p">|:-</span><span class="s s-Atom">--</span><span class="p">|</span><span class="s s-Atom">--</span><span class="p">|</span>
+<span class="p">|</span><span class="k">__</span><span class="o">-</span><span class="s s-Atom">e__</span><span class="p">|</span><span class="nv">Select</span> <span class="s s-Atom">all</span> <span class="s s-Atom">processes</span><span class="p">,</span> <span class="s s-Atom">identical</span> <span class="s s-Atom">to</span> <span class="k">__</span><span class="o">-</span><span class="nv">A__</span><span class="p">|</span>
+<span class="p">|</span><span class="k">__</span><span class="o">-</span><span class="s s-Atom">f__</span><span class="p">|</span><span class="nv">Display</span> <span class="s s-Atom">the</span> <span class="s s-Atom">uid</span><span class="p">,</span> <span class="s s-Atom">pid</span><span class="p">,</span> <span class="s s-Atom">parent</span> <span class="s s-Atom">pid</span><span class="p">,</span> <span class="s s-Atom">recent</span> <span class="nv">CPU</span> <span class="s s-Atom">usage</span><span class="p">,</span> <span class="s s-Atom">process</span> <span class="s s-Atom">start</span> <span class="s s-Atom">time</span><span class="p">,</span> <span class="s s-Atom">controlling</span> <span class="s s-Atom">tty</span><span class="p">,</span> <span class="s s-Atom">elapsed</span> <span class="nv">CPU</span> <span class="s s-Atom">usage</span><span class="p">,</span> <span class="s s-Atom">and</span> <span class="s s-Atom">the</span> <span class="s s-Atom">associated</span> <span class="s s-Atom">command</span><span class="p">.</span><span class="nv">If</span> <span class="s s-Atom">the</span> <span class="k">__</span><span class="o">-</span><span class="s s-Atom">u__</span> <span class="s s-Atom">option</span> <span class="o">is</span> <span class="s s-Atom">also</span> <span class="s s-Atom">used</span><span class="p">,</span> <span class="s s-Atom">display</span> <span class="s s-Atom">the</span> <span class="s s-Atom">user</span> <span class="s s-Atom">name</span> <span class="s s-Atom">rather</span> <span class="s s-Atom">then</span> <span class="s s-Atom">the</span> <span class="s s-Atom">numeric</span> <span class="s s-Atom">uid</span><span class="p">.</span>  <span class="nv">When</span> <span class="k">__</span><span class="o">-</span><span class="s s-Atom">o__</span> <span class="s s-Atom">or</span> <span class="k">__</span><span class="o">-</span><span class="nv">O__</span> <span class="o">is</span> <span class="s s-Atom">used</span> <span class="s s-Atom">to</span> <span class="s s-Atom">add</span> <span class="s s-Atom">to</span> <span class="s s-Atom">the</span> <span class="s s-Atom">display</span> <span class="s s-Atom">following</span> <span class="k">__</span><span class="o">-</span><span class="s s-Atom">f__</span><span class="p">,</span> <span class="s s-Atom">the</span> <span class="s s-Atom">command</span> <span class="s s-Atom">field</span> <span class="o">is</span> <span class="o">not</span> <span class="s s-Atom">truncated</span> <span class="s s-Atom">as</span> <span class="s s-Atom">severely</span> <span class="s s-Atom">as</span> <span class="s s-Atom">it</span> <span class="o">is</span> <span class="s s-Atom">in</span> <span class="s s-Atom">other</span> <span class="s s-Atom">formats</span><span class="p">.|</span>
+<span class="p">|</span><span class="k">__</span><span class="o">-</span><span class="s s-Atom">a__</span><span class="p">|</span><span class="nv">Display</span> <span class="s s-Atom">information</span> <span class="s s-Atom">about</span> <span class="s s-Atom">other</span> <span class="s s-Atom">users</span><span class="err">&#39;</span> <span class="s s-Atom">processes</span> <span class="s s-Atom">as</span> <span class="s s-Atom">well</span> <span class="s s-Atom">as</span> <span class="s s-Atom">your</span> <span class="s s-Atom">own</span><span class="p">.</span>  <span class="nv">This</span> <span class="s s-Atom">will</span> <span class="s s-Atom">skip</span> <span class="s s-Atom">any</span> <span class="s s-Atom">processes</span> <span class="s s-Atom">which</span> <span class="s s-Atom">do</span> <span class="o">not</span> <span class="s s-Atom">have</span> <span class="s s-Atom">a</span> <span class="s s-Atom">controlling</span> <span class="s s-Atom">terminal</span><span class="p">,</span> <span class="s s-Atom">unless</span> <span class="s s-Atom">the</span> <span class="k">__</span><span class="o">-</span><span class="s s-Atom">x__</span> <span class="s s-Atom">option</span> <span class="o">is</span> <span class="s s-Atom">also</span> <span class="s s-Atom">specified</span><span class="p">.|</span>
+<span class="p">|</span><span class="k">__</span><span class="o">-</span><span class="s s-Atom">u__</span><span class="p">|</span><span class="nv">Display</span> <span class="s s-Atom">the</span> <span class="s s-Atom">processes</span> <span class="s s-Atom">belonging</span> <span class="s s-Atom">to</span> <span class="s s-Atom">the</span> <span class="s s-Atom">specified</span> <span class="s s-Atom">usernames</span><span class="p">.|</span>
+<span class="p">|</span><span class="k">__</span><span class="o">-</span><span class="s s-Atom">x__</span><span class="p">|</span><span class="nv">When</span> <span class="s s-Atom">displaying</span> <span class="s s-Atom">processes</span> <span class="s s-Atom">matched</span> <span class="s s-Atom">by</span> <span class="s s-Atom">other</span> <span class="s s-Atom">options</span><span class="p">,</span> <span class="s s-Atom">include</span> <span class="s s-Atom">processes</span> <span class="s s-Atom">which</span> <span class="s s-Atom">do</span> <span class="o">not</span> <span class="s s-Atom">have</span> <span class="s s-Atom">a</span> <span class="s s-Atom">controlling</span> <span class="s s-Atom">terminal</span><span class="p">.|</span>
+<span class="p">|</span><span class="k">__</span><span class="o">-</span><span class="nv">X__</span><span class="p">|</span><span class="nv">When</span> <span class="s s-Atom">displaying</span> <span class="s s-Atom">processes</span> <span class="s s-Atom">matched</span> <span class="s s-Atom">by</span> <span class="s s-Atom">other</span> <span class="s s-Atom">options</span><span class="p">,</span> <span class="s s-Atom">skip</span> <span class="s s-Atom">any</span> <span class="s s-Atom">processes</span> <span class="s s-Atom">which</span> <span class="s s-Atom">do</span> <span class="o">not</span> <span class="s s-Atom">have</span> <span class="s s-Atom">a</span> <span class="s s-Atom">controlling</span> <span class="s s-Atom">terminal</span><span class="p">.|</span>
+</pre></div>
+
+
+<h3 id="_4">网络</h3>
+<h4 id="1-netstat">1. netstat</h4>
+<div class="hlcode"><pre><span></span><span class="err">- -a</span>
+<span class="err">- -n</span>
+<span class="err">- -p: list pid</span>
+</pre></div>
+
+
+<h4 id="2-iptables">2. iptables</h4>
+<div class="hlcode"><pre><span></span><span class="err">显示防火墙配置：`cat /etc/sysconfig/iptables`</span>
+<span class="err">关闭防火墙：`sudo service iptables stop`</span>
+</pre></div>
+
+
+<h4 id="3-route">3. route</h4>
+<div class="hlcode"><pre><span></span><span class="err">查看路由配置：`route -n`</span>
+</pre></div>
+
+
+<h4 id="4-scp">4. scp</h4>
+<div class="hlcode"><pre><span></span><span class="err">文件远程传输</span>
+</pre></div>
+
+
+<h3 id="_5">系统状态</h3>
+<h4 id="1-ls-procpid62cwd">1. ls /proc/&lt;pid>/cwd</h4>
+<h4 id="2-ls-procmeminfo">2. ls /proc/meminfo</h4>
+<h4 id="3-ls-proccpuinfo">3. ls /proc/cpuinfo</h4>
+<h4 id="4-lsblk">4. lsblk</h4>
+<h4 id="5-df">5. df</h4>
+<h4 id="6-lvm">6. lvm</h4>
+<h4 id="7-lvs">7. lvs</h4>
+<h4 id="8-top">8. top</h4>
+<h3 id="_6">压缩、解压</h3>
+<h4 id="1-tar">1. tar</h4>
+<div class="hlcode"><pre><span></span><span class="err">注意：c/x/t选项不能同时使用，f选项接文档名，后面不能再加其他选项</span>
+<span class="err">- -c 压缩</span>
+<span class="err">- -z 是否具有 gzip 属性</span>
+<span class="err">- -t 查看 tarfile 里面的文件！</span>
+<span class="err">- -x 解压</span>
+<span class="err">- -v 压缩的过程中显示文件</span>
+<span class="err">- -f 使用档名</span>
+</pre></div>
+
+
+<h4 id="2-zip">2. zip</h4>
+<h4 id="3-unzip">3. unzip</h4>
+<div class="hlcode"><pre><span></span><span class="err">- -d &lt;exdir\&gt;</span>
+<span class="err">- -q quiet mode</span>
+</pre></div>
     </div>
     <div id="footer">
       <span>
         <p>Copyright © 2020 richardway.
         Powered by <a href="http://simiki.org/" target="_blank">Simiki</a>.</p>
-        <p>Site Generated 2020-09-26 13:42:18</p>
+        <p>Site Generated 2020-09-26 13:45:55</p>
       </span>
     </div>
 
