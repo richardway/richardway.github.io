@@ -40,16 +40,84 @@
 <h3 id="_1">基本命令</h3>
 <ol>
 <li>ls</li>
-<li>cd</li>
-<li>mv</li>
-<li>cp</li>
-<li>mkdir</li>
-<li>rmdir</li>
+</ol>
+<p><code>shell
+   SYNOPSIS
+        ls [-ABCFGHLOPRSTUW@abcdefghiklmnopqrstuwx1] [file ...]</code></p>
+<table>
+<thead>
+<tr>
+<th>选                 项</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-a</td>
+<td>Include directory entries whose names begin with a dot (.).</td>
+</tr>
+<tr>
+<td>-d</td>
+<td>Directories are listed as plain files (not searched recursively).</td>
+</tr>
+<tr>
+<td>-l</td>
+<td>List in long format.</td>
+</tr>
+<tr>
+<td>-t</td>
+<td>Sort by time modified.</td>
+</tr>
+<tr>
+<td>-S</td>
+<td>Sort files by size.</td>
+</tr>
+<tr>
+<td>-T</td>
+<td>used with the -l option, display complete time information for the file, including month, day, hour, minute, second, and year.</td>
+</tr>
+<tr>
+<td>-r</td>
+<td>Reverse the order of the sort to get reverse lexicographical order or the oldest entries first (or largest files last, if combined with sort by size.</td>
+</tr>
+</tbody>
+</table>
+<p>#### 举例</p>
+<p><code>shell
+   # 列出所有非隐藏文件
+   ls
+   ls filename
+   # 列出所有文件
+   ls -a
+   # 列出所有文件及详情
+   ls -al
+   # 按照时间修改顺序列出文件
+   ls -lt
+   # 只列出目录
+   ls -b */</code></p>
+<ol>
+<li>
+<p>cd</p>
+</li>
+<li>
+<p>mv</p>
+</li>
+<li>
+<p>cp</p>
+</li>
+<li>
+<p>mkdir</p>
+</li>
+<li>
+<p>rmdir</p>
+</li>
 <li>
 <p>rm</p>
+</li>
+</ol>
 <p><code>SYNOPSIS
- rm [-dfiPRrvW] file ...
- unlink file</code></p>
+    rm [-dfiPRrvW] file ...
+    unlink file</code></p>
 <table>
 <thead>
 <tr>
@@ -72,17 +140,19 @@
 </tr>
 </tbody>
 </table>
-</li>
+<ol>
 <li>
 <p>touch</p>
 </li>
 <li>
 <p>grep</p>
+</li>
+</ol>
 <p><code>SYNOPSIS
- grep [-abcdDEFGHhIiJLlmnOopqRSsUVvwxZ] [-A num] [-B num] [-C[num]]
-      [-e pattern] [-f file] [--binary-files=value] [--color[=when]]
-      [--colour[=when]] [--context[=num]] [--label] [--line-buffered]
-      [--null] [pattern] [file ...]</code></p>
+     grep [-abcdDEFGHhIiJLlmnOopqRSsUVvwxZ] [-A num] [-B num] [-C[num]]
+          [-e pattern] [-f file] [--binary-files=value] [--color[=when]]
+          [--colour[=when]] [--context[=num]] [--label] [--line-buffered]
+          [--null] [pattern] [file ...]</code></p>
 <table>
 <thead>
 <tr>
@@ -105,14 +175,22 @@
 </tr>
 </tbody>
 </table>
-</li>
+<ol>
 <li>
 <p>find</p>
 </li>
-<li>chmod</li>
-<li>chown</li>
-<li>awk</li>
-<li>xargs</li>
+<li>
+<p>chmod</p>
+</li>
+<li>
+<p>chown</p>
+</li>
+<li>
+<p>awk</p>
+</li>
+<li>
+<p>xargs</p>
+</li>
 </ol>
 <h3 id="_2">进程</h3>
 <ol>
@@ -188,19 +266,29 @@
 </ol>
 <h3 id="_5">压缩、解压</h3>
 <ol>
-<li>tar</li>
+<li>tar<br />
+    注意：c/x/t选项不能同时使用，f选项接文档名，后面不能再加其他选项<ul>
+<li>-c 压缩</li>
+<li>-z 是否具有 gzip 属性</li>
+<li>-t 查看 tarfile 里面的文件！</li>
+<li>-x 解压</li>
+<li>-v 压缩的过程中显示文件</li>
+<li>-f 使用档名</li>
+</ul>
+</li>
 <li>zip</li>
 <li>unzip<ul>
 <li>-d &lt;exdir></li>
+<li>-q quiet mode</li>
 </ul>
 </li>
 </ol>
     </div>
     <div id="footer">
       <span>
-        <p>Copyright © 2017 richardway.
+        <p>Copyright © 2020 richardway.
         Powered by <a href="http://simiki.org/" target="_blank">Simiki</a>.</p>
-        <p>Site Generated 2017-12-03 18:11:44</p>
+        <p>Site Generated 2020-09-26 13:42:18</p>
       </span>
     </div>
 

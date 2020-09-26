@@ -40,99 +40,99 @@
 </div>
 <p>本文记录一些数据库操作的SQL语法。</p>
 <h3 id="1">1. 创建表</h3>
-<div class="hlcode"><pre><span class="o">-&gt;</span><span class="nb">CREATE</span> <span class="nb">TABLE</span> <span class="o">&lt;</span><span class="nb">table_name</span><span class="o">&gt;</span>
+<div class="hlcode"><pre><span></span><span class="o">-&gt;</span><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="o">&lt;</span><span class="k">table_name</span><span class="o">&gt;</span>
 <span class="p">(</span>
-  <span class="o">&lt;</span><span class="nx">colunm_name_1</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="nx">type_1</span><span class="o">&gt;</span><span class="p">,</span>
-  <span class="o">&lt;</span><span class="nx">column_name_2</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="nx">type_2</span><span class="o">&gt;</span><span class="p">,</span>
-  <span class="o">&lt;</span><span class="nx">column_name_3</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="nx">type_3</span><span class="o">&gt;</span><span class="p">,</span>
-  <span class="nx">....</span>
+  <span class="o">&lt;</span><span class="n">colunm_name_1</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">type_1</span><span class="o">&gt;</span><span class="p">,</span>
+  <span class="o">&lt;</span><span class="n">column_name_2</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">type_2</span><span class="o">&gt;</span><span class="p">,</span>
+  <span class="o">&lt;</span><span class="n">column_name_3</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">type_3</span><span class="o">&gt;</span><span class="p">,</span>
+  <span class="p">....</span>
 <span class="p">);</span> 
 </pre></div>
 
 
 <h3 id="2">2. 插入记录</h3>
-<div class="hlcode"><pre><span class="o">-&gt;</span><span class="nb">INSERT</span> <span class="k">INTO</span> <span class="o">&lt;</span><span class="nb">table_name</span><span class="o">&gt;</span> <span class="nb">VALUES</span> <span class="p">(</span><span class="err">[</span><span class="kt">null</span><span class="cp">]</span>, <span class="cp">[</span><span class="s1">&#39;&#39;</span><span class="cp">]</span>, <span class="cp">[</span><span class="mi">123</span><span class="cp">]</span>, <span class="cp">[</span><span class="s1">&#39;abced&#39;</span><span class="cp">]</span>);
--&gt;INSERT INTO <span class="nt">&lt;table</span><span class="na">_name</span><span class="nt">&gt;</span> (列名...) VALUES (列值..)
-MySQL还有另外一种方式：
--&gt;INSERT INTO <span class="nt">&lt;table</span><span class="na">_name</span><span class="nt">&gt;</span> SET column_name_1=&#39;&#39;, column_name_2=123...;
+<div class="hlcode"><pre><span></span><span class="o">-&gt;</span><span class="k">INSERT</span> <span class="k">INTO</span> <span class="o">&lt;</span><span class="k">table_name</span><span class="o">&gt;</span> <span class="k">VALUES</span> <span class="p">([</span><span class="k">null</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">],</span> <span class="p">[</span><span class="mi">123</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;abced&#39;</span><span class="p">]);</span>
+<span class="o">-&gt;</span><span class="k">INSERT</span> <span class="k">INTO</span> <span class="o">&lt;</span><span class="k">table_name</span><span class="o">&gt;</span> <span class="p">(</span><span class="err">列名</span><span class="p">...)</span> <span class="k">VALUES</span> <span class="p">(</span><span class="err">列值</span><span class="p">..)</span>
+<span class="n">MySQL</span><span class="err">还有另外一种方式：</span>
+<span class="o">-&gt;</span><span class="k">INSERT</span> <span class="k">INTO</span> <span class="o">&lt;</span><span class="k">table_name</span><span class="o">&gt;</span> <span class="k">SET</span> <span class="n">column_name_1</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">column_name_2</span><span class="o">=</span><span class="mi">123</span><span class="p">...;</span>
 </pre></div>
 
 
 <h3 id="3">3. 查询记录</h3>
-<div class="hlcode"><pre><span class="err">#</span> <span class="err">选出所有列</span>
-<span class="o">-&gt;</span><span class="k">SELECT</span> <span class="o">*</span> <span class="nb">from</span> <span class="o">&lt;</span><span class="nb">table_name</span><span class="o">&gt;</span> <span class="k">WHERE</span> <span class="o">&lt;</span><span class="nx">conditions</span><span class="o">&gt;</span>
+<div class="hlcode"><pre><span></span><span class="o">#</span> <span class="err">选出所有列</span>
+<span class="o">-&gt;</span><span class="k">SELECT</span> <span class="o">*</span> <span class="k">from</span> <span class="o">&lt;</span><span class="k">table_name</span><span class="o">&gt;</span> <span class="k">WHERE</span> <span class="o">&lt;</span><span class="n">conditions</span><span class="o">&gt;</span>
 
-<span class="err">#</span> <span class="err">选出指定列</span>
-<span class="o">-&gt;</span><span class="k">SELECT</span> <span class="o">&lt;</span><span class="nx">column_name_1</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="nx">column_name_2</span><span class="o">&gt;</span><span class="nx">...</span> <span class="nb">from</span> <span class="o">&lt;</span><span class="nb">table_name</span><span class="o">&gt;</span> <span class="k">WHERE</span> <span class="o">&lt;</span><span class="nx">conditions</span><span class="o">&gt;</span>
+<span class="o">#</span> <span class="err">选出指定列</span>
+<span class="o">-&gt;</span><span class="k">SELECT</span> <span class="o">&lt;</span><span class="n">column_name_1</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">column_name_2</span><span class="o">&gt;</span><span class="p">...</span> <span class="k">from</span> <span class="o">&lt;</span><span class="k">table_name</span><span class="o">&gt;</span> <span class="k">WHERE</span> <span class="o">&lt;</span><span class="n">conditions</span><span class="o">&gt;</span>
 
-<span class="err">#</span> <span class="err">联表查询</span>
-<span class="o">-&gt;</span><span class="k">SELECT</span> <span class="o">*</span> <span class="nb">from</span> <span class="o">&lt;</span><span class="nx">table_name_1</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="nx">join_type</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="nx">table_name_2</span><span class="o">&gt;</span> <span class="k">WHERE</span> <span class="o">&lt;</span><span class="nx">conditions</span><span class="o">&gt;</span>
+<span class="o">#</span> <span class="err">联表查询</span>
+<span class="o">-&gt;</span><span class="k">SELECT</span> <span class="o">*</span> <span class="k">from</span> <span class="o">&lt;</span><span class="n">table_name_1</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">join_type</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">table_name_2</span><span class="o">&gt;</span> <span class="k">WHERE</span> <span class="o">&lt;</span><span class="n">conditions</span><span class="o">&gt;</span>
 
-<span class="nx">join_type</span><span class="p">:</span> <span class="k">join</span><span class="p">,</span> <span class="nx">natural</span> <span class="k">join</span><span class="p">,</span> <span class="nx">inner</span> <span class="k">join</span><span class="p">,</span> <span class="nb">left</span> <span class="k">join</span><span class="p">,</span> <span class="nb">right</span> <span class="k">join</span>
+<span class="n">join_type</span><span class="p">:</span> <span class="k">join</span><span class="p">,</span> <span class="k">natural</span> <span class="k">join</span><span class="p">,</span> <span class="k">inner</span> <span class="k">join</span><span class="p">,</span> <span class="k">left</span> <span class="k">join</span><span class="p">,</span> <span class="k">right</span> <span class="k">join</span>
 </pre></div>
 
 
 <h3 id="4">4. 修改表的名称：</h3>
-<div class="hlcode"><pre><span class="o">-&gt;</span><span class="nx">ALTER</span> <span class="nb">TABLE</span> <span class="o">&lt;</span><span class="nx">table_old</span><span class="o">&gt;</span> <span class="nx">RENAME</span> <span class="o">&lt;</span><span class="nx">table_new</span><span class="o">&gt;</span><span class="p">;</span>
+<div class="hlcode"><pre><span></span><span class="o">-&gt;</span><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="o">&lt;</span><span class="n">table_old</span><span class="o">&gt;</span> <span class="k">RENAME</span> <span class="o">&lt;</span><span class="n">table_new</span><span class="o">&gt;</span><span class="p">;</span>
 </pre></div>
 
 
 <h3 id="5">5. 修改表的属性名称和类型：</h3>
-<div class="hlcode"><pre><span class="err">#</span> <span class="err">如果只修改列属性，可以用</span><span class="nx">modify</span>
-<span class="o">-&gt;</span><span class="nx">ALTER</span> <span class="nb">TABLE</span> <span class="o">&lt;</span><span class="nb">table_name</span><span class="o">&gt;</span> <span class="nx">MODIFY</span> <span class="o">&lt;</span><span class="nb">column_name</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="k">type</span><span class="o">&gt;</span><span class="p">;</span>
+<div class="hlcode"><pre><span></span><span class="o">#</span> <span class="err">如果只修改列属性，可以用</span><span class="k">modify</span>
+<span class="o">-&gt;</span><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="o">&lt;</span><span class="k">table_name</span><span class="o">&gt;</span> <span class="k">MODIFY</span> <span class="o">&lt;</span><span class="k">column_name</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="k">type</span><span class="o">&gt;</span><span class="p">;</span>
 
-<span class="err">#</span> <span class="err">如果需要同时修改列名，使用</span><span class="nx">change</span>
-<span class="o">-&gt;</span><span class="nx">ALTER</span> <span class="nb">TABLE</span> <span class="o">&lt;</span><span class="nb">table_name</span><span class="o">&gt;</span> <span class="nx">CHANGE</span> <span class="o">&lt;</span><span class="nx">column_name_old</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="nx">colunm_name_new</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="k">type</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="o">#</span> <span class="err">如果需要同时修改列名，使用</span><span class="n">change</span>
+<span class="o">-&gt;</span><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="o">&lt;</span><span class="k">table_name</span><span class="o">&gt;</span> <span class="n">CHANGE</span> <span class="o">&lt;</span><span class="n">column_name_old</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">colunm_name_new</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="k">type</span><span class="o">&gt;</span><span class="p">;</span>
 </pre></div>
 
 
 <h3 id="6">6. 添加/删除属性：</h3>
-<div class="hlcode"><pre><span class="o">-&gt;</span><span class="nx">ALTER</span> <span class="nb">TABLE</span> <span class="o">&lt;</span><span class="nb">table_name</span><span class="o">&gt;</span> <span class="nb">ADD</span> <span class="nb">COLUMN</span> <span class="o">&lt;</span><span class="nb">column_name</span><span class="o">&gt;</span><span class="p">;</span>
+<div class="hlcode"><pre><span></span><span class="o">-&gt;</span><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="o">&lt;</span><span class="k">table_name</span><span class="o">&gt;</span> <span class="k">ADD</span> <span class="k">COLUMN</span> <span class="o">&lt;</span><span class="k">column_name</span><span class="o">&gt;</span><span class="p">;</span>
 
-<span class="o">-&gt;</span><span class="nx">ALTER</span> <span class="nb">TABLE</span> <span class="o">&lt;</span><span class="nb">table_name</span><span class="o">&gt;</span> <span class="nx">DROP</span> <span class="nb">COLUMN</span> <span class="o">&lt;</span><span class="nb">column_name</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="o">-&gt;</span><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="o">&lt;</span><span class="k">table_name</span><span class="o">&gt;</span> <span class="k">DROP</span> <span class="k">COLUMN</span> <span class="o">&lt;</span><span class="k">column_name</span><span class="o">&gt;</span><span class="p">;</span>
 </pre></div>
 
 
 <h3 id="7">7. 添加/删除主键约束:</h3>
-<div class="hlcode"><pre><span class="o">-&gt;</span><span class="nx">ALTER</span> <span class="nb">TABLE</span> <span class="o">&lt;</span><span class="nb">table_name</span><span class="o">&gt;</span> <span class="nb">ADD</span> <span class="nx">CONSTRAINT</span> <span class="nx">PRIMARY</span> <span class="nb">KEY</span><span class="p">(</span><span class="o">&lt;</span><span class="nx">attribute</span><span class="o">&gt;</span><span class="p">);</span>
+<div class="hlcode"><pre><span></span><span class="o">-&gt;</span><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="o">&lt;</span><span class="k">table_name</span><span class="o">&gt;</span> <span class="k">ADD</span> <span class="k">CONSTRAINT</span> <span class="k">PRIMARY</span> <span class="k">KEY</span><span class="p">(</span><span class="o">&lt;</span><span class="n">attribute</span><span class="o">&gt;</span><span class="p">);</span>
 
-<span class="o">-&gt;</span><span class="nx">ALTER</span> <span class="nb">TABLE</span> <span class="o">&lt;</span><span class="nb">table_name</span><span class="o">&gt;</span> <span class="nx">DROP</span> <span class="nx">PRIMARY</span> <span class="nb">KEY</span><span class="p">;</span>
+<span class="o">-&gt;</span><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="o">&lt;</span><span class="k">table_name</span><span class="o">&gt;</span> <span class="k">DROP</span> <span class="k">PRIMARY</span> <span class="k">KEY</span><span class="p">;</span>
 </pre></div>
 
 
 <h3 id="8">8. 添加主键自增，设置自增起始值</h3>
 <p>指定了主键自增以后，插入记录时就可以将主键值设为null，数据库会自动自增</p>
-<div class="hlcode"><pre><span class="o">-&gt;</span><span class="nx">ALTER</span> <span class="nb">TABLE</span> <span class="o">&lt;</span><span class="nb">table_name</span><span class="o">&gt;</span> <span class="nb">ADD</span> <span class="nb">COLUMN</span> <span class="o">&lt;</span><span class="nb">column_name</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="k">type</span><span class="o">&gt;</span> <span class="nx">auto_increment</span> <span class="nx">PRIMARY</span> <span class="nb">KEY</span><span class="p">;</span>
+<div class="hlcode"><pre><span></span><span class="o">-&gt;</span><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="o">&lt;</span><span class="k">table_name</span><span class="o">&gt;</span> <span class="k">ADD</span> <span class="k">COLUMN</span> <span class="o">&lt;</span><span class="k">column_name</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="k">type</span><span class="o">&gt;</span> <span class="n">auto_increment</span> <span class="k">PRIMARY</span> <span class="k">KEY</span><span class="p">;</span>
 
-<span class="o">-&gt;</span><span class="nx">ALTER</span> <span class="nb">TABLE</span> <span class="o">&lt;</span><span class="nb">table_name</span><span class="o">&gt;</span> <span class="n">auto_increment</span><span class="o">=</span><span class="mi">100</span><span class="p">;</span>
+<span class="o">-&gt;</span><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="o">&lt;</span><span class="k">table_name</span><span class="o">&gt;</span> <span class="n">auto_increment</span><span class="o">=</span><span class="mi">100</span><span class="p">;</span>
 </pre></div>
 
 
 <h3 id="9">9. 删除表</h3>
-<div class="hlcode"><pre><span class="err">#</span> <span class="err">删除内容和定义，并释放空间</span>
-<span class="o">-&gt;</span><span class="nx">DROP</span> <span class="nb">TABLE</span> <span class="o">&lt;</span><span class="nb">table_name</span><span class="o">&gt;</span><span class="p">;</span> 
+<div class="hlcode"><pre><span></span><span class="o">#</span> <span class="err">删除内容和定义，并释放空间</span>
+<span class="o">-&gt;</span><span class="k">DROP</span> <span class="k">TABLE</span> <span class="o">&lt;</span><span class="k">table_name</span><span class="o">&gt;</span><span class="p">;</span> 
 
-<span class="err">#</span> <span class="err">删除内容保留定义，并释放空间，速度快，不可回滚</span>
-<span class="o">-&gt;</span><span class="nx">TRUNCATE</span> <span class="nb">TABLE</span> <span class="o">&lt;</span><span class="nb">table_name</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="o">#</span> <span class="err">删除内容保留定义，并释放空间，速度快，不可回滚</span>
+<span class="o">-&gt;</span><span class="k">TRUNCATE</span> <span class="k">TABLE</span> <span class="o">&lt;</span><span class="k">table_name</span><span class="o">&gt;</span><span class="p">;</span>
 
-<span class="err">#</span> <span class="err">删除内容保留定义，不释放空间，一条条记录删除，可以回滚</span>
-<span class="o">-&gt;</span><span class="nb">DELETE</span> <span class="nb">FROM</span> <span class="o">&lt;</span><span class="nb">table_name</span><span class="o">&gt;</span>
-<span class="o">-&gt;</span><span class="nb">DELETE</span> <span class="nb">FROM</span> <span class="o">&lt;</span><span class="nb">table_name</span><span class="o">&gt;</span> <span class="k">where</span> <span class="err">[条件</span><span class="cp">]</span>
+<span class="o">#</span> <span class="err">删除内容保留定义，不释放空间，一条条记录删除，可以回滚</span>
+<span class="o">-&gt;</span><span class="k">DELETE</span> <span class="k">FROM</span> <span class="o">&lt;</span><span class="k">table_name</span><span class="o">&gt;</span>
+<span class="o">-&gt;</span><span class="k">DELETE</span> <span class="k">FROM</span> <span class="o">&lt;</span><span class="k">table_name</span><span class="o">&gt;</span> <span class="k">where</span> <span class="p">[</span><span class="err">条件</span><span class="p">]</span>
 </pre></div>
 
 
 <h3 id="10">10. 其他常用语句:</h3>
-<div class="hlcode"><pre><span class="o">-&gt;</span><span class="nx">show</span> <span class="nx">databases</span><span class="p">;</span>      <span class="err">#显示所有的数据库</span>
-<span class="o">-&gt;</span><span class="nx">use</span> <span class="o">&lt;</span><span class="nb">database_name</span><span class="o">&gt;</span><span class="p">;</span> <span class="err">#选择某个数据库</span>
-<span class="o">-&gt;</span><span class="nx">show</span> <span class="nb">tables</span><span class="p">;</span>         <span class="err">#显示当前选择的数据库下所有的表</span>
-<span class="o">-&gt;</span><span class="nb">describe</span> <span class="o">&lt;</span><span class="nb">table_name</span><span class="o">&gt;</span><span class="p">;</span><span class="err">#显示该表定义：所有字段（属性）及其类型</span>
+<div class="hlcode"><pre><span></span><span class="o">-&gt;</span><span class="k">show</span> <span class="n">databases</span><span class="p">;</span>      <span class="o">#</span><span class="err">显示所有的数据库</span>
+<span class="o">-&gt;</span><span class="n">use</span> <span class="o">&lt;</span><span class="n">database_name</span><span class="o">&gt;</span><span class="p">;</span> <span class="o">#</span><span class="err">选择某个数据库</span>
+<span class="o">-&gt;</span><span class="k">show</span> <span class="n">tables</span><span class="p">;</span>         <span class="o">#</span><span class="err">显示当前选择的数据库下所有的表</span>
+<span class="o">-&gt;</span><span class="k">describe</span> <span class="o">&lt;</span><span class="k">table_name</span><span class="o">&gt;</span><span class="p">;</span><span class="o">#</span><span class="err">显示该表定义：所有字段（属性）及其类型</span>
 </pre></div>
     </div>
     <div id="footer">
       <span>
-        <p>Copyright © 2017 richardway.
+        <p>Copyright © 2020 richardway.
         Powered by <a href="http://simiki.org/" target="_blank">Simiki</a>.</p>
-        <p>Site Generated 2017-12-03 18:11:44</p>
+        <p>Site Generated 2020-09-26 13:42:18</p>
       </span>
     </div>
 

@@ -74,28 +74,28 @@
 <blockquote>
 <p>Create an empty Git repository or reinitialize an existing one.</p>
 </blockquote>
-<div class="hlcode"><pre><span class="n">git</span> <span class="n">init</span>
+<div class="hlcode"><pre><span></span><span class="err">git init</span>
 </pre></div>
 
 
 <h3 id="1-clone">1. clone</h3>
-<div class="hlcode"><pre><span class="nx">git</span> <span class="nx">clone</span> <span class="err">[</span><span class="na">-b</span> <span class="o">&lt;</span><span class="nx">branch</span><span class="o">&gt;</span><span class="cp">]</span> <span class="cp">[</span><span class="o">--</span><span class="nb">depth</span> <span class="o">&lt;</span><span class="nb">depth</span><span class="o">&gt;</span><span class="cp">]</span> <span class="nt">&lt;repository&gt;</span> <span class="cp">[</span><span class="o">&lt;</span><span class="nb">dir</span><span class="o">&gt;</span><span class="cp">]</span>
+<div class="hlcode"><pre><span></span><span class="err">git clone [-b &lt;branch&gt;] [--depth &lt;depth&gt;] &lt;repository&gt; [&lt;dir&gt;]</span>
 </pre></div>
 
 
 <h3 id="2-fetch">2. fetch</h3>
-<div class="hlcode"><pre><span class="nx">git</span> <span class="nx">fetch</span> <span class="o">&lt;</span><span class="nx">repository</span><span class="o">&gt;</span> <span class="err">[</span><span class="o">&lt;</span><span class="nx">branch</span><span class="o">&gt;</span><span class="cp">]</span>
+<div class="hlcode"><pre><span></span><span class="n">git</span> <span class="k">fetch</span> <span class="o">&lt;</span><span class="n">repository</span><span class="o">&gt;</span> <span class="p">[</span><span class="o">&lt;</span><span class="n">branch</span><span class="o">&gt;</span><span class="p">]</span>
 
-e.g.
-git fetch origin develop
+<span class="n">e</span><span class="p">.</span><span class="k">g</span><span class="p">.</span>
+<span class="n">git</span> <span class="k">fetch</span> <span class="n">origin</span> <span class="n">develop</span>
 </pre></div>
 
 
 <h3 id="3-merge">3. merge</h3>
-<div class="hlcode"><pre><span class="nx">git</span> <span class="nb">merge</span> <span class="err">[</span><span class="o">&lt;</span><span class="nx">options</span><span class="o">&gt;</span><span class="cp">]</span> <span class="nt">&lt;branch&gt;</span>
+<div class="hlcode"><pre><span></span><span class="n">git</span> <span class="n">merge</span> <span class="p">[</span><span class="o">&lt;</span><span class="k">options</span><span class="o">&gt;</span><span class="p">]</span> <span class="o">&lt;</span><span class="n">branch</span><span class="o">&gt;</span>
 
-e.g.
-git merge --no-ff origin/develop
+<span class="n">e</span><span class="p">.</span><span class="k">g</span><span class="p">.</span>
+<span class="n">git</span> <span class="n">merge</span> <span class="c1">--no-ff origin/develop</span>
 </pre></div>
 
 
@@ -126,8 +126,8 @@ git merge --no-ff origin/develop
 <blockquote>
 <p>Fetch from and integrate with another repository or a local</p>
 </blockquote>
-<div class="hlcode"><pre><span class="err">#</span> <span class="nx">git</span> <span class="n">pull</span> <span class="o">=</span> <span class="nx">fetch</span> <span class="o">+</span> <span class="nb">merge</span>
-<span class="nx">git</span> <span class="nx">pull</span> <span class="err">[</span><span class="o">&lt;</span><span class="nx">options</span><span class="o">&gt;</span><span class="cp">]</span> <span class="nt">&lt;repository&gt;</span> <span class="cp">[</span><span class="o">&lt;</span><span class="nx">branch</span><span class="o">&gt;</span><span class="cp">]</span>
+<div class="hlcode"><pre><span></span><span class="err"># git pull = fetch + merge</span>
+<span class="err">git pull [&lt;options&gt;] &lt;repository&gt; [&lt;branch&gt;]</span>
 </pre></div>
 
 
@@ -171,11 +171,11 @@ git merge --no-ff origin/develop
 <p>Update remote refs along with associated objects.<br />
 Push local commits to remote repository.</p>
 </blockquote>
-<div class="hlcode"><pre><span class="nx">git</span> <span class="nb">push</span> <span class="err">[</span><span class="o">&lt;</span><span class="nx">options</span><span class="o">&gt;</span><span class="cp">]</span> <span class="nt">&lt;repository&gt;</span> <span class="cp">[</span><span class="o">&lt;</span><span class="nx">branch</span><span class="o">&gt;</span><span class="cp">]</span>
+<div class="hlcode"><pre><span></span><span class="n">git</span> <span class="n">push</span> <span class="p">[</span><span class="o">&lt;</span><span class="k">options</span><span class="o">&gt;</span><span class="p">]</span> <span class="o">&lt;</span><span class="n">repository</span><span class="o">&gt;</span> <span class="p">[</span><span class="o">&lt;</span><span class="n">branch</span><span class="o">&gt;</span><span class="p">]</span>
 
-e.g.
-git push origin develop
-git push --delete <span class="nt">&lt;repository&gt;</span> <span class="cp">[</span><span class="o">&lt;</span><span class="nx">branch</span><span class="o">&gt;</span><span class="cp">]</span>
+<span class="n">e</span><span class="p">.</span><span class="k">g</span><span class="p">.</span>
+<span class="n">git</span> <span class="n">push</span> <span class="n">origin</span> <span class="n">develop</span>
+<span class="n">git</span> <span class="n">push</span> <span class="c1">--delete &lt;repository&gt; [&lt;branch&gt;]</span>
 </pre></div>
 
 
@@ -202,16 +202,16 @@ git push --delete <span class="nt">&lt;repository&gt;</span> <span class="cp">[<
 <blockquote>
 <p>Add file contents to the index.</p>
 </blockquote>
-<div class="hlcode"><pre><span class="nx">git</span> <span class="nb">add</span> <span class="err">[</span><span class="o">&lt;</span><span class="nx">options</span><span class="o">&gt;</span><span class="cp">]</span> <span class="cp">[</span><span class="o">--</span><span class="cp">]</span> <span class="nt">&lt;pathspec&gt;</span>...
+<div class="hlcode"><pre><span></span><span class="n">git</span> <span class="k">add</span> <span class="p">[</span><span class="o">&lt;</span><span class="k">options</span><span class="o">&gt;</span><span class="p">]</span> <span class="p">[</span><span class="c1">--] &lt;pathspec&gt;...</span>
 
-e.g.
-git add readme.md
-git add .
+<span class="n">e</span><span class="p">.</span><span class="k">g</span><span class="p">.</span>
+<span class="n">git</span> <span class="k">add</span> <span class="n">readme</span><span class="p">.</span><span class="n">md</span>
+<span class="n">git</span> <span class="k">add</span> <span class="p">.</span>
 </pre></div>
 
 
 <h3 id="7-commit">7. commit</h3>
-<div class="hlcode"><pre><span class="nx">git</span> <span class="nx">commit</span> <span class="err">[</span><span class="o">&lt;</span><span class="nx">options</span><span class="o">&gt;</span><span class="cp">]</span> <span class="cp">[</span><span class="o">--</span><span class="cp">]</span> <span class="nt">&lt;pathspec&gt;</span>...
+<div class="hlcode"><pre><span></span><span class="err">git commit [&lt;options&gt;] [--] &lt;pathspec&gt;...</span>
 </pre></div>
 
 
@@ -254,9 +254,9 @@ git add .
 </tbody>
 </table>
 <h3 id="8-remote">8. remote</h3>
-<div class="hlcode"><pre><span class="nx">git</span> <span class="nx">remote</span> <span class="nx">show</span>
-<span class="nx">git</span> <span class="nx">remote</span> <span class="nx">show</span> <span class="nx">origin</span>
-<span class="nx">git</span> <span class="nx">remote</span> <span class="nb">add</span> <span class="o">&lt;</span><span class="nx">ref</span><span class="na">-name</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="nx">repository</span><span class="o">&gt;</span>
+<div class="hlcode"><pre><span></span><span class="err">git remote show</span>
+<span class="err">git remote show origin</span>
+<span class="err">git remote add &lt;ref-name&gt; &lt;repository&gt;</span>
 </pre></div>
 
 
@@ -264,10 +264,10 @@ git add .
 <blockquote>
 <p>List, create, or delete branches.</p>
 </blockquote>
-<div class="hlcode"><pre><span class="nx">git</span> <span class="nx">branch</span> <span class="err">[</span><span class="o">&lt;</span><span class="nx">options</span><span class="o">&gt;</span><span class="cp">]</span> <span class="cp">[</span><span class="na">-r</span> <span class="o">|</span> <span class="na">-a</span><span class="cp">]</span> <span class="cp">[</span><span class="o">--</span><span class="nx">merged</span> <span class="o">|</span> <span class="o">--</span><span class="nx">no</span><span class="na">-merged</span><span class="cp">]</span>
-git branch <span class="cp">[</span><span class="o">&lt;</span><span class="nx">options</span><span class="o">&gt;</span><span class="cp">]</span> <span class="cp">[</span><span class="na">-l</span><span class="cp">]</span> <span class="cp">[</span><span class="na">-f</span><span class="cp">]</span> <span class="nt">&lt;branch</span><span class="na">-name</span><span class="nt">&gt;</span> <span class="cp">[</span><span class="o">&lt;</span><span class="nb">start</span><span class="na">-point</span><span class="o">&gt;</span><span class="cp">]</span>
-git branch <span class="cp">[</span><span class="o">&lt;</span><span class="nx">options</span><span class="o">&gt;</span><span class="cp">]</span> <span class="cp">[</span><span class="na">-r</span><span class="cp">]</span> (-d | -D) <span class="nt">&lt;branch</span><span class="na">-name</span><span class="nt">&gt;</span>...
-git branch <span class="cp">[</span><span class="o">&lt;</span><span class="nx">options</span><span class="o">&gt;</span><span class="cp">]</span> (-m | -M) <span class="cp">[</span><span class="o">&lt;</span><span class="nx">old</span><span class="na">-branch</span><span class="o">&gt;</span><span class="cp">]</span> <span class="nt">&lt;new</span><span class="na">-branch</span><span class="nt">&gt;</span>
+<div class="hlcode"><pre><span></span><span class="err">git branch [&lt;options&gt;] [-r | -a] [--merged | --no-merged]</span>
+<span class="err">git branch [&lt;options&gt;] [-l] [-f] &lt;branch-name&gt; [&lt;start-point&gt;]</span>
+<span class="err">git branch [&lt;options&gt;] [-r] (-d | -D) &lt;branch-name&gt;...</span>
+<span class="err">git branch [&lt;options&gt;] (-m | -M) [&lt;old-branch&gt;] &lt;new-branch&gt;</span>
 </pre></div>
 
 
@@ -310,8 +310,8 @@ git branch <span class="cp">[</span><span class="o">&lt;</span><span class="nx">
 <blockquote>
 <p>Switch branches or restore working tree files.</p>
 </blockquote>
-<div class="hlcode"><pre><span class="nx">git</span> <span class="nx">checkout</span> <span class="err">[</span><span class="o">&lt;</span><span class="nx">options</span><span class="o">&gt;</span><span class="cp">]</span> <span class="nt">&lt;branch&gt;</span>
-git checkout <span class="cp">[</span><span class="o">&lt;</span><span class="nx">options</span><span class="o">&gt;</span><span class="cp">]</span> <span class="cp">[</span><span class="o">&lt;</span><span class="nx">branch</span><span class="o">&gt;</span><span class="cp">]</span> -- <span class="nt">&lt;file&gt;</span>...
+<div class="hlcode"><pre><span></span><span class="err">git checkout [&lt;options&gt;] &lt;branch&gt;</span>
+<span class="err">git checkout [&lt;options&gt;] [&lt;branch&gt;] -- &lt;file&gt;...</span>
 </pre></div>
 
 
@@ -336,12 +336,12 @@ git checkout <span class="cp">[</span><span class="o">&lt;</span><span class="nx
 </table>
 <h3 id="11-rebase">11. rebase</h3>
 <h3 id="12-log">12. log</h3>
-<div class="hlcode"><pre><span class="n">git</span> <span class="n">log</span>
+<div class="hlcode"><pre><span></span><span class="err">git log</span>
 </pre></div>
 
 
 <h3 id="13-reflog">13. reflog</h3>
-<div class="hlcode"><pre><span class="n">git</span> <span class="n">reflog</span>
+<div class="hlcode"><pre><span></span><span class="err">git reflog</span>
 </pre></div>
 
 
@@ -350,10 +350,10 @@ git checkout <span class="cp">[</span><span class="o">&lt;</span><span class="nx
 <blockquote>
 <p>Remove files from the working tree and from the index.</p>
 </blockquote>
-<div class="hlcode"><pre><span class="nx">git</span> <span class="nx">rm</span> <span class="err">[</span><span class="o">&lt;</span><span class="nx">options</span><span class="o">&gt;</span><span class="cp">]</span> <span class="cp">[</span><span class="o">--</span><span class="cp">]</span> <span class="nt">&lt;file&gt;</span>...
+<div class="hlcode"><pre><span></span><span class="n">git</span> <span class="n">rm</span> <span class="p">[</span><span class="o">&lt;</span><span class="k">options</span><span class="o">&gt;</span><span class="p">]</span> <span class="p">[</span><span class="c1">--] &lt;file&gt;...</span>
 
-e.g.
-git rm --cached <span class="nt">&lt;file&gt;</span>...
+<span class="n">e</span><span class="p">.</span><span class="k">g</span><span class="p">.</span>
+<span class="n">git</span> <span class="n">rm</span> <span class="c1">--cached &lt;file&gt;...</span>
 </pre></div>
 
 
@@ -382,12 +382,12 @@ git rm --cached <span class="nt">&lt;file&gt;</span>...
 <p>Normally, only files unknown to Git are removed, but if the <code>-x</code> option is specified, ignored files are also removed. This can, for example, be useful to remove all build products.</p>
 <p>If any optional <code>&lt;path&gt;...</code> arguments are given, only those paths are affected.</p>
 </blockquote>
-<div class="hlcode"><pre><span class="nx">git</span> <span class="nx">clean</span> <span class="err">[</span><span class="na">-d</span><span class="cp">]</span> <span class="cp">[</span><span class="na">-f</span><span class="cp">]</span> <span class="cp">[</span><span class="na">-i</span><span class="cp">]</span> <span class="cp">[</span><span class="na">-n</span><span class="cp">]</span> <span class="cp">[</span><span class="na">-q</span><span class="cp">]</span> <span class="cp">[</span><span class="na">-e</span> <span class="o">&lt;</span><span class="nx">pattern</span><span class="o">&gt;</span><span class="cp">]</span> <span class="cp">[</span><span class="na">-x</span> <span class="o">|</span> <span class="na">-X</span><span class="cp">]</span> <span class="cp">[</span><span class="o">--</span><span class="cp">]</span> <span class="nt">&lt;paths&gt;</span>...
+<div class="hlcode"><pre><span></span><span class="err">git clean [-d] [-f] [-i] [-n] [-q] [-e &lt;pattern&gt;] [-x | -X] [--] &lt;paths&gt;...</span>
 </pre></div>
 
 
 <h3 id="17-status">17. status</h3>
-<div class="hlcode"><pre><span class="n">git</span> <span class="n">status</span>
+<div class="hlcode"><pre><span></span><span class="err">git status</span>
 </pre></div>
 
 
@@ -396,9 +396,9 @@ git rm --cached <span class="nt">&lt;file&gt;</span>...
     </div>
     <div id="footer">
       <span>
-        <p>Copyright © 2017 richardway.
+        <p>Copyright © 2020 richardway.
         Powered by <a href="http://simiki.org/" target="_blank">Simiki</a>.</p>
-        <p>Site Generated 2017-12-03 18:11:44</p>
+        <p>Site Generated 2020-09-26 13:42:18</p>
       </span>
     </div>
 
