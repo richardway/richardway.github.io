@@ -7,48 +7,90 @@ date: 2017-09-24 23:16
 
 # Linux命令
 ### 基本命令
-1. ls
-2. cd
-3. mv
-4. cp
-5. mkdir
-6. rmdir
-7. rm
+2. ls
 
-	```
-	 SYNOPSIS
-     rm [-dfiPRrvW] file ...
-     unlink file
-	```
+   ```shell
+   SYNOPSIS
+        ls [-ABCFGHLOPRSTUW@abcdefghiklmnopqrstuwx1] [file ...]
+   ```
 
-	|选项|作用|
-	|:---|--|
-	|__-d__|Attempt to remove directories as well as other types of files.|
-	|__-f__|Forcely remove without asking.|
-	|__-r__|Attempt to remove the file hierarchy rooted in each file argument.|
+   | 选                 项 | 作用                                                         |
+   | ---- | ------------------------------------------------------------ |
+   |   -a   | Include directory entries whose names begin with a dot (.).  |
+   |   -d   | Directories are listed as plain files (not searched recursively). |
+   |   -l   | List in long format.                                         |
+   |   -t   | Sort by time modified.                                       |
+   |   -S   | Sort files by size.                                          |
+   |   -T   | used with the -l option, display complete time information for the file, including month, day, hour, minute, second, and year. |
+   |   -r   | Reverse the order of the sort to get reverse lexicographical order or the oldest entries first (or largest files last, if combined with sort by size. |
 
-8. touch
-9. grep
+   #### 举例
 
-	```
-	 SYNOPSIS
+   ```shell
+   # 列出所有非隐藏文件
+   ls
+   ls filename
+   # 列出所有文件
+   ls -a
+   # 列出所有文件及详情
+   ls -al
+   # 按照时间修改顺序列出文件
+   ls -lt
+   # 只列出目录
+   ls -b */
+   ```
+
+3. cd
+
+4. mv
+
+5. cp
+
+6. mkdir
+
+7. rmdir
+
+8. rm
+
+  ```
+  SYNOPSIS
+    rm [-dfiPRrvW] file ...
+    unlink file
+  ```
+
+  |选项|作用|
+  |:---|--|
+  |__-d__|Attempt to remove directories as well as other types of files.|
+  |__-f__|Forcely remove without asking.|
+  |__-r__|Attempt to remove the file hierarchy rooted in each file argument.|
+
+9. touch
+
+10. grep
+
+  ```
+  SYNOPSIS
      grep [-abcdDEFGHhIiJLlmnOopqRSsUVvwxZ] [-A num] [-B num] [-C[num]]
           [-e pattern] [-f file] [--binary-files=value] [--color[=when]]
           [--colour[=when]] [--context[=num]] [--label] [--line-buffered]
           [--null] [pattern] [file ...]
-	```
+  ```
 
-	|选项|作用|
-	|:---|--|
-	|__-v__|Selected lines are those __not__ matching any of the specified patterns.|
-	|__-i__|Perform case insensitive matching.|
-	|__-r__|Recursively search subdirectories listed.|
+  |选项|作用|
+  |:---|--|
+  |__-v__|Selected lines are those __not__ matching any of the specified patterns.|
+  |__-i__|Perform case insensitive matching.|
+  |__-r__|Recursively search subdirectories listed.|
 
-10. find
-11. chmod
-12. chown
-13. awk
-14. xargs
+11. find
+
+12. chmod
+
+13. chown
+
+14. awk
+
+15. xargs
 
 ### 进程
 1. ps -- process status
@@ -95,6 +137,14 @@ date: 2017-09-24 23:16
 
 ### 压缩、解压
 1. tar
+	注意：c/x/t选项不能同时使用，f选项接文档名，后面不能再加其他选项
+	- -c 压缩
+	- -z 是否具有 gzip 属性
+	- -t 查看 tarfile 里面的文件！
+	- -x 解压
+	- -v 压缩的过程中显示文件
+	- -f 使用档名
 2. zip
 3. unzip
 	- -d <exdir\>
+	- -q quiet mode
