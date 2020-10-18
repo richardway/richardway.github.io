@@ -14,17 +14,17 @@ date: 2017-09-24 23:16
         ls [-ABCFGHLOPRSTUW@abcdefghiklmnopqrstuwx1] [file ...]
    ```
 
-   | 选                 项 | 作用                                                         |
-   | ---- | ------------------------------------------------------------ |
-   |   -a   | Include directory entries whose names begin with a dot (.).  |
-   |   -d   | Directories are listed as plain files (not searched recursively). |
-   |   -l   | List in long format.                                         |
-   |   -t   | Sort by time modified.                                       |
-   |   -S   | Sort files by size.                                          |
-   |   -T   | used with the -l option, display complete time information for the file, including month, day, hour, minute, second, and year. |
-   |   -r   | Reverse the order of the sort to get reverse lexicographical order or the oldest entries first (or largest files last, if combined with sort by size. |
+| 选                 项 | 作用                                                         |
+| ---- | ------------------------------------------------------------ |
+| __-a__  | 包含目录下隐藏文件（以.开头）|
+| __-d__   | Directories are listed as plain files (not searched recursively). |
+| __-l__   | 按长格式输出 |
+| __-t__   | 按修改时间降序排序 |
+| __-S__   | 按文件大小降序排序 |
+| __-T__   | 与 __-l__ 选项一起使用时，展示完整的时间信息 |
+| __-r__   | 逆转排序结果 |
 
-   
+
 ##### 示例
 
 ```shell
@@ -59,11 +59,24 @@ ls -b */
     unlink file
   ```
 
-  |选项|作用|
-  |:---|--|
-  |__-d__|Attempt to remove directories as well as other types of files.|
-  |__-f__|Forcely remove without asking.|
-  |__-r__|Attempt to remove the file hierarchy rooted in each file argument.|
+|选项|作用|
+|:---|--|
+|__-d__|删除目录|
+|__-f__|无需确认，强制删除|
+|__-r__|删除指定目录下所有文件和目录|
+
+##### 示例
+
+```shell
+# 删除文件
+rm file
+# 删除空目录
+rm -d dir
+# 删除非空目录
+rm -rd dir
+# 删除目录下所有内容
+rm -rf dir
+```
 
 #### 9. touch
 
@@ -77,11 +90,11 @@ ls -b */
           [--null] [pattern] [file ...]
   ```
 
-  |选项|作用|
-  |:---|--|
-  |__-v__|Selected lines are those __not__ matching any of the specified patterns.|
-  |__-i__|Perform case insensitive matching.|
-  |__-r__|Recursively search subdirectories listed.|
+|选项|作用|
+|:---|--|
+|__-v__| 搜索**不**符合指定条件的行 |
+|__-i__| 搜索**不**区分大小写 |
+|__-r__| 递归搜索子目录 |
 
 #### 11. find
 
@@ -103,15 +116,21 @@ ls -b */
 		[-U user[,user...]]
 	 ps [-L]
 	```
+	
+|选项|作用|
+|:---|--|
+|__-e__|选择所有进程，和 __-A__ 作用相同|
+|__-f__|展示uid, pid, 父pid, 近期CPU使用率, 进程启动时间, 控制tty, 占用CPU时间, 启动命令|
+|__-a__|展示自己的和其他用户的所有进程，跳过没有控制终端的进程|
+|__-u__|展示属于指定用户的进程|
+|__-x__|通过其他选项展示进程时，包含没有控制终端的进程|
+|__-X__|通过其他选项展示进程时，跳过没有控制终端的进程|
 
-	|选项|作用|
-	|:---|--|
-	|__-e__|Select all processes, identical to __-A__|
-	|__-f__|Display the uid, pid, parent pid, recent CPU usage, process start time, controlling tty, elapsed CPU usage, and the associated command.If the __-u__ option is also used, display the user name rather then the numeric uid.  When __-o__ or __-O__ is used to add to the display following __-f__, the command field is not truncated as severely as it is in other formats.|
-	|__-a__|Display information about other users' processes as well as your own.  This will skip any processes which do not have a controlling terminal, unless the __-x__ option is also specified.|
-	|__-u__|Display the processes belonging to the specified usernames.|
-	|__-x__|When displaying processes matched by other options, include processes which do not have a controlling terminal.|
-	|__-X__|When displaying processes matched by other options, skip any processes which do not have a controlling terminal.|
+
+##### 示例
+```shell
+ps -urichard -ef
+```
 
 ### 网络
 #### 1. netstat
@@ -138,14 +157,17 @@ ls -b */
 
 ### 压缩、解压
 #### 1. tar
-	注意：c/x/t选项不能同时使用，f选项接文档名，后面不能再加其他选项
-	- -c 压缩
-	- -z 是否具有 gzip 属性
-	- -t 查看 tarfile 里面的文件！
-	- -x 解压
-	- -v 压缩的过程中显示文件
-	- -f 使用档名
+注意：c/x/t选项不能同时使用，f选项接文档名，后面不能再加其他选项
+
+- -c 压缩
+- -z 是否具有 gzip 属性
+- -t 查看 tarfile 里面的文件！
+- -x 解压
+- -v 压缩的过程中显示文件
+- -f 使用档名
+
 #### 2. zip
 #### 3. unzip
-	- -d <exdir\>
-	- -q quiet mode
+
+- -d <exdir\>
+- -q quiet mode
