@@ -37,7 +37,10 @@
 <li><a href="#5-cp">5. cp</a></li>
 <li><a href="#6-mkdir">6. mkdir</a></li>
 <li><a href="#7-rmdir">7. rmdir</a></li>
-<li><a href="#8-rm">8. rm</a></li>
+<li><a href="#8-rm">8. rm</a><ul>
+<li><a href="#_3">示例</a></li>
+</ul>
+</li>
 <li><a href="#9-touch">9. touch</a></li>
 <li><a href="#10-grep">10. grep</a></li>
 <li><a href="#11-find">11. find</a></li>
@@ -47,18 +50,21 @@
 <li><a href="#15-xargs">15. xargs</a></li>
 </ul>
 </li>
-<li><a href="#_3">进程</a><ul>
-<li><a href="#1-ps-process-status">1. ps -- process status</a></li>
+<li><a href="#_4">进程</a><ul>
+<li><a href="#1-ps-process-status">1. ps -- process status</a><ul>
+<li><a href="#_5">示例</a></li>
 </ul>
 </li>
-<li><a href="#_4">网络</a><ul>
+</ul>
+</li>
+<li><a href="#_6">网络</a><ul>
 <li><a href="#1-netstat">1. netstat</a></li>
 <li><a href="#2-iptables">2. iptables</a></li>
 <li><a href="#3-route">3. route</a></li>
 <li><a href="#4-scp">4. scp</a></li>
 </ul>
 </li>
-<li><a href="#_5">系统状态</a><ul>
+<li><a href="#_7">系统状态</a><ul>
 <li><a href="#1-ls-procpid62cwd">1. ls /proc/&lt;pid>/cwd</a></li>
 <li><a href="#2-ls-procmeminfo">2. ls /proc/meminfo</a></li>
 <li><a href="#3-ls-proccpuinfo">3. ls /proc/cpuinfo</a></li>
@@ -69,7 +75,7 @@
 <li><a href="#8-top">8. top</a></li>
 </ul>
 </li>
-<li><a href="#_6">压缩、解压</a><ul>
+<li><a href="#_8">压缩、解压</a><ul>
 <li><a href="#1-tar">1. tar</a></li>
 <li><a href="#2-zip">2. zip</a></li>
 <li><a href="#3-unzip">3. unzip</a></li>
@@ -94,32 +100,32 @@
 </thead>
 <tbody>
 <tr>
-<td>-a</td>
-<td>Include directory entries whose names begin with a dot (.).</td>
+<td><strong>-a</strong></td>
+<td>包含目录下隐藏文件（以.开头）</td>
 </tr>
 <tr>
-<td>-d</td>
+<td><strong>-d</strong></td>
 <td>Directories are listed as plain files (not searched recursively).</td>
 </tr>
 <tr>
-<td>-l</td>
-<td>List in long format.</td>
+<td><strong>-l</strong></td>
+<td>按长格式输出</td>
 </tr>
 <tr>
-<td>-t</td>
-<td>Sort by time modified.</td>
+<td><strong>-t</strong></td>
+<td>按修改时间降序排序</td>
 </tr>
 <tr>
-<td>-S</td>
-<td>Sort files by size.</td>
+<td><strong>-S</strong></td>
+<td>按文件大小降序排序</td>
 </tr>
 <tr>
-<td>-T</td>
-<td>used with the -l option, display complete time information for the file, including month, day, hour, minute, second, and year.</td>
+<td><strong>-T</strong></td>
+<td>与 <strong>-l</strong> 选项一起使用时，展示完整的时间信息</td>
 </tr>
 <tr>
-<td>-r</td>
-<td>Reverse the order of the sort to get reverse lexicographical order or the oldest entries first (or largest files last, if combined with sort by size.</td>
+<td><strong>-r</strong></td>
+<td>逆转排序结果</td>
 </tr>
 </tbody>
 </table>
@@ -157,18 +163,30 @@ ls -b */
 <tbody>
 <tr>
 <td align="left"><strong>-d</strong></td>
-<td>Attempt to remove directories as well as other types of files.</td>
+<td>删除目录</td>
 </tr>
 <tr>
 <td align="left"><strong>-f</strong></td>
-<td>Forcely remove without asking.</td>
+<td>无需确认，强制删除</td>
 </tr>
 <tr>
 <td align="left"><strong>-r</strong></td>
-<td>Attempt to remove the file hierarchy rooted in each file argument.</td>
+<td>删除指定目录下所有文件和目录</td>
 </tr>
 </tbody>
 </table>
+<h5 id="_3">示例</h5>
+<div class="hlcode"><pre><span></span><span class="c1"># 删除文件</span>
+rm file
+<span class="c1"># 删除空目录</span>
+rm -d dir
+<span class="c1"># 删除非空目录</span>
+rm -rd dir
+<span class="c1"># 删除目录下所有内容</span>
+rm -rf dir
+</pre></div>
+
+
 <h4 id="9-touch">9. touch</h4>
 <h4 id="10-grep">10. grep</h4>
 <p><code>SYNOPSIS
@@ -186,15 +204,15 @@ ls -b */
 <tbody>
 <tr>
 <td align="left"><strong>-v</strong></td>
-<td>Selected lines are those <strong>not</strong> matching any of the specified patterns.</td>
+<td>搜索<strong>不</strong>符合指定条件的行</td>
 </tr>
 <tr>
 <td align="left"><strong>-i</strong></td>
-<td>Perform case insensitive matching.</td>
+<td>搜索<strong>不</strong>区分大小写</td>
 </tr>
 <tr>
 <td align="left"><strong>-r</strong></td>
-<td>Recursively search subdirectories listed.</td>
+<td>递归搜索子目录</td>
 </tr>
 </tbody>
 </table>
@@ -203,28 +221,58 @@ ls -b */
 <h4 id="13-chown">13. chown</h4>
 <h4 id="14-awk">14. awk</h4>
 <h4 id="15-xargs">15. xargs</h4>
-<h3 id="_3">进程</h3>
+<h3 id="_4">进程</h3>
 <h4 id="1-ps-process-status">1. ps -- process status</h4>
 <div class="hlcode"><pre><span></span><span class="err">```</span>
- <span class="nv">SYNOPSIS</span>
- <span class="s s-Atom">ps</span> <span class="p">[</span><span class="o">-</span><span class="nv">AaCcEefhjlMmrSTvwXx</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="nv">O</span> <span class="s s-Atom">fmt</span> <span class="p">|</span> <span class="o">-</span><span class="s s-Atom">o</span> <span class="s s-Atom">fmt</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="nv">G</span> <span class="s s-Atom">gid</span><span class="p">[,</span><span class="s s-Atom">gid</span><span class="p">...]]</span>
-    <span class="p">[</span><span class="o">-</span><span class="s s-Atom">g</span> <span class="s s-Atom">grp</span><span class="p">[,</span><span class="s s-Atom">grp</span><span class="p">...]]</span> <span class="p">[</span><span class="o">-</span><span class="s s-Atom">u</span> <span class="s s-Atom">uid</span><span class="p">[,</span><span class="s s-Atom">uid</span><span class="p">...]]</span> <span class="p">[</span><span class="o">-</span><span class="s s-Atom">p</span> <span class="s s-Atom">pid</span><span class="p">[,</span><span class="s s-Atom">pid</span><span class="p">...]]</span> <span class="p">[</span><span class="o">-</span><span class="s s-Atom">t</span> <span class="s s-Atom">tty</span><span class="p">[,</span><span class="s s-Atom">tty</span><span class="p">...]]</span>
-    <span class="p">[</span><span class="o">-</span><span class="nv">U</span> <span class="s s-Atom">user</span><span class="p">[,</span><span class="s s-Atom">user</span><span class="p">...]]</span>
- <span class="s s-Atom">ps</span> <span class="p">[</span><span class="o">-</span><span class="nv">L</span><span class="p">]</span>
+<span class="err"> SYNOPSIS</span>
+<span class="err"> ps [-AaCcEefhjlMmrSTvwXx] [-O fmt | -o fmt] [-G gid[,gid...]]</span>
+<span class="err">    [-g grp[,grp...]] [-u uid[,uid...]] [-p pid[,pid...]] [-t tty[,tty...]]</span>
+<span class="err">    [-U user[,user...]]</span>
+<span class="err"> ps [-L]</span>
 <span class="err">```</span>
-
-<span class="p">|</span><span class="s s-Atom">选项</span><span class="p">|</span><span class="s s-Atom">作用</span><span class="p">|</span>
-<span class="p">|:-</span><span class="s s-Atom">--</span><span class="p">|</span><span class="s s-Atom">--</span><span class="p">|</span>
-<span class="p">|</span><span class="k">__</span><span class="o">-</span><span class="s s-Atom">e__</span><span class="p">|</span><span class="nv">Select</span> <span class="s s-Atom">all</span> <span class="s s-Atom">processes</span><span class="p">,</span> <span class="s s-Atom">identical</span> <span class="s s-Atom">to</span> <span class="k">__</span><span class="o">-</span><span class="nv">A__</span><span class="p">|</span>
-<span class="p">|</span><span class="k">__</span><span class="o">-</span><span class="s s-Atom">f__</span><span class="p">|</span><span class="nv">Display</span> <span class="s s-Atom">the</span> <span class="s s-Atom">uid</span><span class="p">,</span> <span class="s s-Atom">pid</span><span class="p">,</span> <span class="s s-Atom">parent</span> <span class="s s-Atom">pid</span><span class="p">,</span> <span class="s s-Atom">recent</span> <span class="nv">CPU</span> <span class="s s-Atom">usage</span><span class="p">,</span> <span class="s s-Atom">process</span> <span class="s s-Atom">start</span> <span class="s s-Atom">time</span><span class="p">,</span> <span class="s s-Atom">controlling</span> <span class="s s-Atom">tty</span><span class="p">,</span> <span class="s s-Atom">elapsed</span> <span class="nv">CPU</span> <span class="s s-Atom">usage</span><span class="p">,</span> <span class="s s-Atom">and</span> <span class="s s-Atom">the</span> <span class="s s-Atom">associated</span> <span class="s s-Atom">command</span><span class="p">.</span><span class="nv">If</span> <span class="s s-Atom">the</span> <span class="k">__</span><span class="o">-</span><span class="s s-Atom">u__</span> <span class="s s-Atom">option</span> <span class="o">is</span> <span class="s s-Atom">also</span> <span class="s s-Atom">used</span><span class="p">,</span> <span class="s s-Atom">display</span> <span class="s s-Atom">the</span> <span class="s s-Atom">user</span> <span class="s s-Atom">name</span> <span class="s s-Atom">rather</span> <span class="s s-Atom">then</span> <span class="s s-Atom">the</span> <span class="s s-Atom">numeric</span> <span class="s s-Atom">uid</span><span class="p">.</span>  <span class="nv">When</span> <span class="k">__</span><span class="o">-</span><span class="s s-Atom">o__</span> <span class="s s-Atom">or</span> <span class="k">__</span><span class="o">-</span><span class="nv">O__</span> <span class="o">is</span> <span class="s s-Atom">used</span> <span class="s s-Atom">to</span> <span class="s s-Atom">add</span> <span class="s s-Atom">to</span> <span class="s s-Atom">the</span> <span class="s s-Atom">display</span> <span class="s s-Atom">following</span> <span class="k">__</span><span class="o">-</span><span class="s s-Atom">f__</span><span class="p">,</span> <span class="s s-Atom">the</span> <span class="s s-Atom">command</span> <span class="s s-Atom">field</span> <span class="o">is</span> <span class="o">not</span> <span class="s s-Atom">truncated</span> <span class="s s-Atom">as</span> <span class="s s-Atom">severely</span> <span class="s s-Atom">as</span> <span class="s s-Atom">it</span> <span class="o">is</span> <span class="s s-Atom">in</span> <span class="s s-Atom">other</span> <span class="s s-Atom">formats</span><span class="p">.|</span>
-<span class="p">|</span><span class="k">__</span><span class="o">-</span><span class="s s-Atom">a__</span><span class="p">|</span><span class="nv">Display</span> <span class="s s-Atom">information</span> <span class="s s-Atom">about</span> <span class="s s-Atom">other</span> <span class="s s-Atom">users</span><span class="err">&#39;</span> <span class="s s-Atom">processes</span> <span class="s s-Atom">as</span> <span class="s s-Atom">well</span> <span class="s s-Atom">as</span> <span class="s s-Atom">your</span> <span class="s s-Atom">own</span><span class="p">.</span>  <span class="nv">This</span> <span class="s s-Atom">will</span> <span class="s s-Atom">skip</span> <span class="s s-Atom">any</span> <span class="s s-Atom">processes</span> <span class="s s-Atom">which</span> <span class="s s-Atom">do</span> <span class="o">not</span> <span class="s s-Atom">have</span> <span class="s s-Atom">a</span> <span class="s s-Atom">controlling</span> <span class="s s-Atom">terminal</span><span class="p">,</span> <span class="s s-Atom">unless</span> <span class="s s-Atom">the</span> <span class="k">__</span><span class="o">-</span><span class="s s-Atom">x__</span> <span class="s s-Atom">option</span> <span class="o">is</span> <span class="s s-Atom">also</span> <span class="s s-Atom">specified</span><span class="p">.|</span>
-<span class="p">|</span><span class="k">__</span><span class="o">-</span><span class="s s-Atom">u__</span><span class="p">|</span><span class="nv">Display</span> <span class="s s-Atom">the</span> <span class="s s-Atom">processes</span> <span class="s s-Atom">belonging</span> <span class="s s-Atom">to</span> <span class="s s-Atom">the</span> <span class="s s-Atom">specified</span> <span class="s s-Atom">usernames</span><span class="p">.|</span>
-<span class="p">|</span><span class="k">__</span><span class="o">-</span><span class="s s-Atom">x__</span><span class="p">|</span><span class="nv">When</span> <span class="s s-Atom">displaying</span> <span class="s s-Atom">processes</span> <span class="s s-Atom">matched</span> <span class="s s-Atom">by</span> <span class="s s-Atom">other</span> <span class="s s-Atom">options</span><span class="p">,</span> <span class="s s-Atom">include</span> <span class="s s-Atom">processes</span> <span class="s s-Atom">which</span> <span class="s s-Atom">do</span> <span class="o">not</span> <span class="s s-Atom">have</span> <span class="s s-Atom">a</span> <span class="s s-Atom">controlling</span> <span class="s s-Atom">terminal</span><span class="p">.|</span>
-<span class="p">|</span><span class="k">__</span><span class="o">-</span><span class="nv">X__</span><span class="p">|</span><span class="nv">When</span> <span class="s s-Atom">displaying</span> <span class="s s-Atom">processes</span> <span class="s s-Atom">matched</span> <span class="s s-Atom">by</span> <span class="s s-Atom">other</span> <span class="s s-Atom">options</span><span class="p">,</span> <span class="s s-Atom">skip</span> <span class="s s-Atom">any</span> <span class="s s-Atom">processes</span> <span class="s s-Atom">which</span> <span class="s s-Atom">do</span> <span class="o">not</span> <span class="s s-Atom">have</span> <span class="s s-Atom">a</span> <span class="s s-Atom">controlling</span> <span class="s s-Atom">terminal</span><span class="p">.|</span>
 </pre></div>
 
 
-<h3 id="_4">网络</h3>
+<table>
+<thead>
+<tr>
+<th align="left">选项</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><strong>-e</strong></td>
+<td>选择所有进程，和 <strong>-A</strong> 作用相同</td>
+</tr>
+<tr>
+<td align="left"><strong>-f</strong></td>
+<td>展示uid, pid, 父pid, 近期CPU使用率, 进程启动时间, 控制tty, 占用CPU时间, 启动命令</td>
+</tr>
+<tr>
+<td align="left"><strong>-a</strong></td>
+<td>展示自己的和其他用户的所有进程，跳过没有控制终端的进程</td>
+</tr>
+<tr>
+<td align="left"><strong>-u</strong></td>
+<td>展示属于指定用户的进程</td>
+</tr>
+<tr>
+<td align="left"><strong>-x</strong></td>
+<td>通过其他选项展示进程时，包含没有控制终端的进程</td>
+</tr>
+<tr>
+<td align="left"><strong>-X</strong></td>
+<td>通过其他选项展示进程时，跳过没有控制终端的进程</td>
+</tr>
+</tbody>
+</table>
+<h5 id="_5">示例</h5>
+<div class="hlcode"><pre><span></span>ps -urichard -ef
+</pre></div>
+
+
+<h3 id="_6">网络</h3>
 <h4 id="1-netstat">1. netstat</h4>
 <div class="hlcode"><pre><span></span><span class="err">- -a</span>
 <span class="err">- -n</span>
@@ -248,7 +296,7 @@ ls -b */
 </pre></div>
 
 
-<h3 id="_5">系统状态</h3>
+<h3 id="_7">系统状态</h3>
 <h4 id="1-ls-procpid62cwd">1. ls /proc/&lt;pid>/cwd</h4>
 <h4 id="2-ls-procmeminfo">2. ls /proc/meminfo</h4>
 <h4 id="3-ls-proccpuinfo">3. ls /proc/cpuinfo</h4>
@@ -257,29 +305,29 @@ ls -b */
 <h4 id="6-lvm">6. lvm</h4>
 <h4 id="7-lvs">7. lvs</h4>
 <h4 id="8-top">8. top</h4>
-<h3 id="_6">压缩、解压</h3>
+<h3 id="_8">压缩、解压</h3>
 <h4 id="1-tar">1. tar</h4>
-<div class="hlcode"><pre><span></span><span class="err">注意：c/x/t选项不能同时使用，f选项接文档名，后面不能再加其他选项</span>
-<span class="err">- -c 压缩</span>
-<span class="err">- -z 是否具有 gzip 属性</span>
-<span class="err">- -t 查看 tarfile 里面的文件！</span>
-<span class="err">- -x 解压</span>
-<span class="err">- -v 压缩的过程中显示文件</span>
-<span class="err">- -f 使用档名</span>
-</pre></div>
-
-
+<p>注意：c/x/t选项不能同时使用，f选项接文档名，后面不能再加其他选项</p>
+<ul>
+<li>-c 压缩</li>
+<li>-z 是否具有 gzip 属性</li>
+<li>-t 查看 tarfile 里面的文件！</li>
+<li>-x 解压</li>
+<li>-v 压缩的过程中显示文件</li>
+<li>-f 使用档名</li>
+</ul>
 <h4 id="2-zip">2. zip</h4>
 <h4 id="3-unzip">3. unzip</h4>
-<div class="hlcode"><pre><span></span><span class="err">- -d &lt;exdir\&gt;</span>
-<span class="err">- -q quiet mode</span>
-</pre></div>
+<ul>
+<li>-d &lt;exdir></li>
+<li>-q quiet mode</li>
+</ul>
     </div>
     <div id="footer">
       <span>
         <p>Copyright © 2020 richardway.
         Powered by <a href="http://simiki.org/" target="_blank">Simiki</a>.</p>
-        <p>Site Generated 2020-09-26 13:45:55</p>
+        <p>Site Generated 2020-10-18 13:25:32</p>
       </span>
     </div>
 
