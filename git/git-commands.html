@@ -68,6 +68,7 @@
 <li><a href="#17-status">17. status</a></li>
 <li><a href="#18-reset">18. reset</a></li>
 <li><a href="#19-diff">19. diff</a></li>
+<li><a href="#20-cherry-pick">20. cherry-pick</a></li>
 </ul>
 </div>
 <h3 id="0-init">0. init</h3>
@@ -393,12 +394,23 @@ Push local commits to remote repository.</p>
 
 <h3 id="18-reset">18. reset</h3>
 <h3 id="19-diff">19. diff</h3>
+<h3 id="20-cherry-pick">20. cherry-pick</h3>
+<blockquote>
+<p>Apply the changes introduced by some existing commits</p>
+</blockquote>
+<div class="hlcode"><pre><span></span><span class="c1"># 在当前分支，以一个新commit合入master分支的最新commit</span>
+git cherry-pick master
+<span class="c1"># 在当前分支，以一个新commit合入master分支的倒数第2个最新commit</span>
+git cherry-pick master~1
+<span class="c1"># 在当前分支，以2个新commits合入master分支的倒数第5个、第3个最新commit</span>
+git cherry-pick master~4 master~2
+</pre></div>
     </div>
     <div id="footer">
       <span>
         <p>Copyright © 2020 richardway.
         Powered by <a href="http://simiki.org/" target="_blank">Simiki</a>.</p>
-        <p>Site Generated 2020-10-18 13:25:32</p>
+        <p>Site Generated 2020-10-18 15:54:19</p>
       </span>
     </div>
 
