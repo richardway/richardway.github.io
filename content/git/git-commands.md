@@ -187,3 +187,17 @@ git status
 ### 18. reset
 
 ### 19. diff
+
+### 20. cherry-pick
+
+> Apply the changes introduced by some existing commits
+
+```shell
+# 在当前分支，以一个新commit合入master分支的最新commit
+git cherry-pick master
+# 在当前分支，以一个新commit合入master分支的倒数第2个最新commit
+git cherry-pick master~1
+# 在当前分支，以2个新commits合入master分支的倒数第5个、第3个最新commit
+git cherry-pick master~4 master~2
+```
+
